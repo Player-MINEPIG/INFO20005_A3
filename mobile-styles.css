@@ -24,7 +24,7 @@ body {
     overflow: hidden;
     background: url('src/images/background.jpg');
     background-position: 36% 15%;
-    background-size: 200vw;
+    background-size: 175vw;
     background-repeat: no-repeat;
 }
 
@@ -33,6 +33,7 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
+    height: 100vh;      /* ensure container fills the viewport */
 }
 
 /* Header styles */
@@ -70,15 +71,21 @@ nav {
 
 /* Main content */
 main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas: 
+        "hero"
+        "contact"
+        "project"
+        "shop";
+    flex: 1 1 auto;        /* grow to fill remaining height under header */
+    overflow-y: auto;      /* scroll internally if content taller than space */
 }
 
 /* Hero section */
 .hero {
+    grid-area: hero;
     position: relative;
     height: 16rem;
     flex-shrink: 0;
@@ -102,11 +109,6 @@ main {
     font-size: 1.5rem;
     font-weight: 800;
     line-height: 120%;
-}
-
-/* Make the title take the full row */
-.full-card h1 {
-    grid-column: 1 / -1;
 }
 
 .slogan {
@@ -143,10 +145,12 @@ main {
 }
 
 .contact-card {
+    grid-area: contact;
     background: linear-gradient(to bottom, #FEB838, #B2883D);
 }
 
 .project-card {
+    grid-area: project;
     background: linear-gradient(to bottom, #ACEA99, #779D6C);
 }
 
@@ -162,6 +166,7 @@ main {
 }
 
 .full-card h1 {
+    grid-column: 1 / -1;
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
 }
@@ -176,6 +181,7 @@ main {
 }
 
 .shop-card {
+    grid-area: shop;
     background: linear-gradient(to bottom, #D3BD9A, #A68E67);
 }
 
