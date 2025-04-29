@@ -10,12 +10,22 @@ html {
     height: 100%;
 }
 
+:root {
+    --space-1: 0.5rem;
+    --space-2: 1rem;
+    --radius: 5px;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     height: 100%;
     width: 100%;
     font-size: 1rem;
     overflow: hidden;
+    background: url('src/images/background.jpg');
+    background-position: 36% 15%;
+    background-size: 200vw;
+    background-repeat: no-repeat;
 }
 
 .container {
@@ -32,7 +42,7 @@ header {
     align-items: center;
     background: linear-gradient(to bottom, #E0E0D5, #B5B5A3);
     padding: 1rem;
-    border-radius: 0 0 0.2rem 0.2rem;
+    border-radius: 0 0 var(--radius) var(--radius);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -69,26 +79,23 @@ main {
 
 /* Hero section */
 .hero {
-    text-align: left;
     position: relative;
     height: 15rem;
     overflow: hidden;
     flex-shrink: 0;
 }
 
-.hero img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.hero > * {
+    position: relative;
+    z-index: 1;
+    padding: var(--space-2);
 }
 
 .title, .slogan {
-    position: relative;
-    z-index: 1;
     background: rgba(255, 255, 255, 0.7);
-    border-radius: 5px;
-    padding: 1rem;
-    margin-bottom: 1rem;
+    border-radius: var(--radius);
+    padding: var(--space-2);
+    margin-bottom: var(--space-2);
 }
 
 .title h1 {
