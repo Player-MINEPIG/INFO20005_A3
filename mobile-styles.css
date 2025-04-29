@@ -80,7 +80,7 @@ main {
         "project"
         "shop";
     flex: 1 1 auto;        /* grow to fill remaining height under header */
-    overflow-y: auto;      /* scroll internally if content taller than space */
+    overflow-y: hidden;      /* prevent scrolling */
 }
 
 /* Hero section */
@@ -132,7 +132,11 @@ main {
     row-gap: 0.5rem;
     border-radius: var(--radius);
     padding: var(--space-2);
+    padding-bottom: calc(var(--space-2) + var(--space-2));
+    margin-bottom: calc(-1 * var(--space-2));
     flex-shrink: 0;
+    position: relative;
+    z-index: 1;
 }
 
 .abbreviated-card h1 {
@@ -147,22 +151,28 @@ main {
 .contact-card {
     grid-area: contact;
     background: linear-gradient(to bottom, #FEB838, #B2883D);
+    z-index: 1;  
 }
 
 .project-card {
     grid-area: project;
     background: linear-gradient(to bottom, #ACEA99, #779D6C);
+    z-index: 2; 
 }
 
 .full-card {
     display: grid;
     grid-template-columns: 1fr auto;   
-    row-gap: 0.5rem;                   
+    row-gap: var(--space-1);                   
     align-items: center;               
     background: linear-gradient(to bottom, #D3BD9A, #A68E67);
     border-radius: 5px;
-    padding: 1rem;
+    padding: var(--space-2);
+    padding-bottom: calc(var(--space-2) + var(--space-2));
+    margin-bottom: calc(-1 * var(--space-2));
     flex-shrink: 0;
+    position: relative;
+    z-index: 1;
 }
 
 .full-card h1 {
@@ -183,6 +193,7 @@ main {
 .shop-card {
     grid-area: shop;
     background: linear-gradient(to bottom, #D3BD9A, #A68E67);
+    z-index: 3;  
 }
 
 .coffee-grid {
