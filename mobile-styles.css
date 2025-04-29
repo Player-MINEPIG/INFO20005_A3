@@ -161,19 +161,31 @@ main {
     opacity: 0.5;
 }
 
+.full-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
 .shop-card {
     background: linear-gradient(to bottom, #D3BD9A, #A68E67);
 }
 
 .coffee-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
 }
 
-.coffee-item img {
-    width: 100%;
-    border-radius: 5px;
+.coffee-item {
     aspect-ratio: 1;
+    border-radius: var(--radius);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.coffee-item img {
+    width: 80%;
+    height: 80%;
     object-fit: cover;
 }
