@@ -90,25 +90,28 @@ main {
 }
 
 .title {
-    display: inline-block;
+    display: block;
     background: rgba(255, 255, 255, 0.7);
     border-radius: var(--radius);
     padding: var(--space-2);
     margin: var(--space-2);
+    width: fit-content;
 }
 
 .title h1 {
     font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 1.2;
+    font-weight: 800;
+    line-height: 120%;
 }
 
 .slogan {
-    display: inline-block;
+    display: block;
     background: rgba(255, 255, 255, 0.7);
     border-radius: var(--radius);
     padding: var(--space-1);
     margin-left: var(--space-2);
+    margin-right: var(--space-2);
+    width: fit-content;
 }
 
 .slogan p {
