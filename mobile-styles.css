@@ -104,6 +104,11 @@ main {
     line-height: 120%;
 }
 
+/* Make the title take the full row */
+.full-card h1 {
+    grid-column: 1 / -1;
+}
+
 .slogan {
     display: block;
     background: rgba(255, 255, 255, 0.7);
@@ -121,6 +126,8 @@ main {
 
 /* Card styles */
 .abbreviated-card {
+    display: grid;
+    row-gap: 0.5rem;
     border-radius: var(--radius);
     padding: var(--space-2);
     flex-shrink: 0;
@@ -128,7 +135,6 @@ main {
 
 .abbreviated-card h1 {
     font-size: 1.5rem;
-    margin-bottom: 0.5rem;
 }
 
 .abbreviated-card p {
@@ -145,6 +151,10 @@ main {
 }
 
 .full-card {
+    display: grid;
+    grid-template-columns: 1fr auto;   
+    row-gap: 0.5rem;                   
+    align-items: center;               
     background: linear-gradient(to bottom, #D3BD9A, #A68E67);
     border-radius: 5px;
     padding: 1rem;
@@ -163,7 +173,6 @@ main {
 
 .full-card h2 {
     font-size: 1.5rem;
-    margin-bottom: 0.5rem;
 }
 
 .shop-card {
@@ -171,6 +180,7 @@ main {
 }
 
 .coffee-grid {
+    grid-column: 1 / -1;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
