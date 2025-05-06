@@ -240,11 +240,16 @@ main {
     flex-direction: row;
     width: 100%;
     height: 100%;
+    overflow-x: hidden;
   }
 
   .hero {
+    margin-right: calc(-1 * var(--space-2));
+    padding-right: calc(var(--space-2) + var(--space-2));
+    padding-left: var(--space-2);
     background: linear-gradient(90deg, #B5B5A3 0%, #E0E0D5 100%);
     flex: 1;
+    order: 1;
     display: grid;
     grid-template-rows: auto auto 1fr;
     grid-template-areas: 
@@ -390,19 +395,29 @@ main {
   }
 
   /* Card styles */
+  .abbreviated-card, .full-card {
+    margin-right: calc(-1 * var(--space-2));
+    padding-right: calc(var(--space-2) + var(--space-2));
+    position: relative;
+    box-shadow: 2px 4px 8px rgba(0,0,0,0.1);
+  }
+
   .contact-card {
-    background: linear-gradient(to bottom, #FEB838, #B2883D);
-    z-index: 1;  
+    order: 4;
+    background: linear-gradient(to left, #FEB838, #d7a850);
+    z-index: 3; 
   }
 
   .project-card {
-    background: linear-gradient(to bottom, #ACEA99, #779D6C);
+    order: 3;
+    background: linear-gradient(to left, #ACEA99, #9fc68b);
     z-index: 2; 
   }
 
   .shop-card {
-    background: linear-gradient(to bottom, #D3BD9A, #A68E67);
-    z-index: 3;  
+    order: 2;
+    background: linear-gradient(to left, #D3BD9A, #b9a785);
+    z-index: 1;  
   }
 
   .shop-card h1, .project-card h1, .contact-card h1 {
