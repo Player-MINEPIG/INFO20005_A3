@@ -16,6 +16,10 @@ html {
     --radius: 5px;
 }
 
+.desktop-only {
+    display: none;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     height: 100%;

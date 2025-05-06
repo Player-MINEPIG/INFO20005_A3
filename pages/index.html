@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container">
-        <header>
+        <header class="mobile-only">
             <div class="logo">
                 <img src="../assets/images/logo.png" alt="Square One Coffee Roasters Logo">
             </div>
@@ -26,11 +26,27 @@
 
         <main>
             <section class="hero">
+                <div class="desktop-only">
+                    <div class="logo">
+                        <img src="../assets/images/logo.png" alt="Square One Coffee Roasters Logo">
+                    </div>
+                    <nav>
+                        <button class="transparent-background">
+                            <img src="../assets/images/cart.svg" alt="Shopping Cart">
+                        </button>
+                        <button class="transparent-background">
+                            <img src="../assets/images/menu.svg" alt="Menu">
+                        </button>
+                    </nav>
+                </div>
                 <div class="title">
                     <h1>SQUARE ONE<br>COFFEE ROASTERS</h1>
                 </div>
                 <div class="slogan">
                     <p>Our coffee, your choice.</p>
+                </div>
+                <div class="desktop-only">
+                    <img src="../assets/images/desktop-hero.png" alt="Square One Coffee Roasters Background">
                 </div>
             </section>
 
@@ -48,7 +64,7 @@
                 <h1>Shop</h1>
                 <p>What to enjoy</p>
                 <h2>Espressos</h2>
-                <div class="coffee-grid">
+                <div class="coffee-grid mobile-only">
                     <div class="coffee-item">
                         <img src="../assets/images/espresso.png" alt="Espresso">
                     </div>
