@@ -16,7 +16,7 @@ html {
     --radius: 5px;
 }
 
-.desktop-only {
+.desktop-only, .desktop-only * {
     display: none;
 }
 
