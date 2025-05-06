@@ -388,5 +388,30 @@ main {
     object-fit: contain;
     border-radius: var(--radius);
   }
-}
 
+  /* Card styles */
+  .contact-card {
+    background: linear-gradient(to bottom, #FEB838, #B2883D);
+    z-index: 1;  
+  }
+
+  .project-card {
+    background: linear-gradient(to bottom, #ACEA99, #779D6C);
+    z-index: 2; 
+  }
+
+  .shop-card {
+    background: linear-gradient(to bottom, #D3BD9A, #A68E67);
+    z-index: 3;  
+  }
+
+  .shop-card h1, .project-card h1, .contact-card h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 120%;
+    text-align: center;
+    justify-self: center;
+    align-self: center;
+    margin: var(--space-2);
+  }
+}
