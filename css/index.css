@@ -244,15 +244,15 @@ main {
     background: linear-gradient(90deg, #B5B5A3 0%, #E0E0D5 100%);
     flex: 1;
     display: grid;
-    grid-template-rows: auto auto auto auto;
+    grid-template-rows: auto 1fr 1fr;
     grid-template-areas: 
         "header"
-        "title"
-        "slogan"
+        "text"
         "image";
     height: 100%;
   }
 
+  /* Hero header */
   .hero-header {
     display: flex;
     align-items: center;
@@ -334,5 +334,42 @@ main {
   .logo img {
     height: 6rem;
     width: auto;
+  }
+
+  /* Hero text */
+  .title {
+    grid-area: text;
+    background: none;
+    margin: var(--space-2);
+    width: fit-content;
+    justify-self: center;
+  }
+
+  .title h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 120%;
+    text-align: center;
+  }
+
+  .slogan {
+    grid-area: text;
+    margin: 1rem;
+    background: none;
+    align-self: flex-start;
+    justify-self: center;
+  }
+
+  .slogan p {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  /* Hero image */
+  .image {
+    grid-area: image;
+    margin: 1rem;
+    background: none;
+    align-self: flex-start;
   }
 }
