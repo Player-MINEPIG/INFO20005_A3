@@ -62,7 +62,6 @@ nav {
 nav button {
     background: rgba(255, 255, 255, 0);
     border: none;
-    border-radius: 5px;
     padding: 0.5rem;
     cursor: pointer;
 }
@@ -221,7 +220,6 @@ main {
 @media (min-width: 1368px) {
 
   body {
-    background: linear-gradient(90deg, #B5B5A3 0%, #E0E0D5 100%);
     background-image: none;
   }
 
@@ -242,6 +240,7 @@ main {
   }
 
   .hero {
+    background: linear-gradient(90deg, #B5B5A3 0%, #E0E0D5 100%);
     flex: 1;
     display: grid;
     grid-template-rows: auto auto auto auto;
@@ -270,7 +269,6 @@ main {
   nav button {
     background: rgba(255, 255, 255, 0);
     border: none;
-    border-radius: 5px;
     padding: 0.5rem;
     cursor: pointer;
   }
@@ -284,6 +282,8 @@ main {
     display: flex;
     flex-direction: row;
     gap: 0.75rem;
+    align-items: center;
+    font-size: 1.5rem;
   }
 
   .logo {
