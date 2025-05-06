@@ -59,7 +59,7 @@ nav {
     gap: 0.75rem;
 }
 
-.transparent-background {
+nav button {
     background: rgba(255, 255, 255, 0);
     border: none;
     border-radius: 5px;
@@ -67,7 +67,7 @@ nav {
     cursor: pointer;
 }
 
-.transparent-background img {
+nav button img {
     width: 1.25rem;
     height: 1.25rem;
 }
@@ -219,36 +219,39 @@ main {
 
 /* Desktop styles */
 @media (min-width: 1368px) {
+
   body {
     background: linear-gradient(90deg, #B5B5A3 0%, #E0E0D5 100%);
     background-image: none;
   }
+
   .container {
     width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: row;
   }
+
   .mobile-only, .mobile-only * {
-    display: none !important;
+    display: none;
   }
-  .desktop-only {
-    display: block !important;
-  }
+
   main {
     display: flex;
     flex-direction: row;
   }
+
   .hero {
     flex: 1;
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
     grid-template-areas: 
         "header"
         "title"
         "slogan"
         "image";
   }
+
   .hero-header {
     grid-area: header;
     display: flex;
@@ -256,27 +259,40 @@ main {
     justify-content: space-between;
     align-items: center;
   }
-  .logo {
-    flex: 1;
-  }
-  .logo img {
-    height: 2.5rem;
-  }
+
   nav {
+    flex: 1;
     display: flex;
+    flex-direction: row;
     gap: 0.75rem;
   }
-  .transparent-background {
+
+  nav button {
     background: rgba(255, 255, 255, 0);
     border: none;
     border-radius: 5px;
     padding: 0.5rem;
     cursor: pointer;
   }
-  .transparent-background img {
+
+  nav button img {
     width: 1.25rem;
     height: 1.25rem;
   }
+
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+  }
+
+  .logo {
+    flex: 1;
+  }
+  .logo img {
+    height: 1rem;
+  }
+
   .title {
     grid-area: title;
   }
