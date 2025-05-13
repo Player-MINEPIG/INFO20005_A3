@@ -298,6 +298,11 @@ main {
     border: none;
     cursor: pointer;
     margin-right: 2rem;
+    transition: transform 0.3s ease;
+  }
+
+  .menu-btn.active {
+    transform: rotate(180deg);
   }
 
   .menu-btn img {
@@ -309,6 +314,20 @@ main {
   .main-menu {
     flex: 1;
     order: 2;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    max-height: 500px;
+    opacity: 1;
+    overflow: hidden;
+  }
+
+  .main-menu.folded {
+    display: none;
+  }
+
+  .main-menu.folded {
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
   }
 
   .main-menu ul {
