@@ -108,3 +108,19 @@ main {
     flex-shrink: 0;
     position: relative;
 }
+
+.espresso-card {
+    background: linear-gradient(180deg, #BE5036 0%, #593026 100%);
+}
+
+.blend-card {
+    background: linear-gradient(180deg, #3D8A64 0%, #244233 100%);
+}
+
+.filter-card {
+    background: linear-gradient(180deg, #C380AC 0%, #5D3F53 100%);
+}
+
+.accessories-card {
+    background: linear-gradient(180deg, #AEB4CC 0%, #666A78 100%);
+}
