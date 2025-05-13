@@ -1,8 +1,15 @@
-
 import { initCartDrawer } from './insertCartDrawer.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     initCartDrawer();
+
+    // Shop card navigation
+    const shopCard = document.querySelector('.shop-card');
+    if (shopCard) {
+        shopCard.addEventListener('click', () => {
+            window.location.href = '/pages/shop.html';
+        });
+    }
 
     // Fold menu button
     let isFolded = false;
