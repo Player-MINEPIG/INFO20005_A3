@@ -449,3 +449,48 @@ main {
     margin: var(--space-2);
   }
 }
+
+/* 购物车遮罩层 */
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 1000;
+}
+.cart-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* 购物车侧边抽屉 */
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: -420px;
+  width: 420px;
+  height: 100vh;
+  background: linear-gradient(180deg, #E0E0D5 0%, #B5B5A3 100%);
+  box-shadow: -2px 0 8px rgba(0,0,0,0.15);
+  transition: right 0.3s;
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 2rem 1rem 2rem;
+}
+.cart-drawer.active {
+  right: 0;
+}
+
+@media (max-width: 1367px) {
+  .cart-drawer {
+    width: 100vw;
+    right: -100vw;
+    padding: 1rem;
+  }
+  .cart-drawer.active {
+    right: 0;
+  }
+}
