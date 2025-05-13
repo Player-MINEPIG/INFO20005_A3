@@ -6,9 +6,10 @@
     <title>Square One Coffee Roasters</title>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/index.css">
-    <script src="../js/index.js"></script>
+    <link rel="stylesheet" href="../css/homepage-cart-drawer.css">
+    <script type="module" src="../js/index.js"></script>
 </head>
-<body>
+<body data-page="index">
     <div class="container">
         <header class="mobile-only">
             <div class="logo">
@@ -88,32 +89,5 @@
             
         </main>
     </div>
-    <!-- Cart Overlay -->
-    <div class="cart-overlay"></div>
-    <!-- Cart Drawer -->
-    <aside class="cart-drawer">
-        <nav class="cart-menu">
-            <button class="cart-btn">
-                <img src="../assets/images/cart.svg" alt="Shopping Cart">
-            </button>
-          <ul>
-            
-          </ul>
-        </nav>
-        <div class="cart-vertical-divider"></div>
-        <div class="cart-items">
-          <div class="cart-products">
-            <p>Your cart is empty.</p>
-          </div>
-          <div class="cart-divider"></div>
-          <div class="cart-checkout">
-            <div class="subtotal-row">
-              <span>Subtotal:</span>
-              <span class="subtotal-amount">A$0</span>
-            </div>
-            <button class="checkout-btn">CHECKOUT</button>
-          </div>
-        </div>
-    </aside>
 </body>
 </html>
