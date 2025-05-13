@@ -27,13 +27,13 @@
         <main>
             <section class="hero">
                 <div class="desktop-only hero-header">
-                    <div class="cart-btn">
+                    <button class="cart-btn">
                         <img src="../assets/images/cart.svg" alt="Shopping Cart">
-                    </div>
+                    </button>
                     <div class="menu-group">
-                        <div class="menu-btn">
+                        <button class="menu-btn">
                             <img src="../assets/images/fold.svg" alt="Fold Menu">
-                        </div>
+                        </button>
                         <nav class="main-menu">
                             <ul>
                                 <li><a href="/pages/index.html">About</a></li>
@@ -88,16 +88,34 @@
             
         </main>
     </div>
-    <!-- 购物车遮罩层 -->
+    <!-- Cart Overlay -->
     <div class="cart-overlay"></div>
-    <!-- 购物车侧边抽屉 -->
+    <!-- Cart Drawer -->
     <aside class="cart-drawer">
-      <h2>Shopping Cart</h2>
-      <!-- 这里可以放购物车内容，如商品列表、结算按钮等 -->
-      <div class="cart-items">
-        <p>你的购物车是空的。</p>
-      </div>
-      <button class="close-cart">关闭</button>
+        <nav class="cart-menu">
+            <button class="cart-btn">
+                <img src="../assets/images/cart.svg" alt="Shopping Cart">
+            </button>
+          <ul>
+            <li>Menu 1</li>
+            <li>Menu 2</li>
+            <li>Menu 3</li>
+          </ul>
+        </nav>
+        <div class="cart-vertical-divider"></div>
+        <div class="cart-items">
+          <div class="cart-products">
+            <p>Your cart is empty.</p>
+          </div>
+          <div class="cart-divider"></div>
+          <div class="cart-checkout">
+            <div class="subtotal-row">
+              <span>Subtotal:</span>
+              <span class="subtotal-amount">A$0</span>
+            </div>
+            <button class="checkout-btn">CHECKOUT</button>
+          </div>
+        </div>
     </aside>
 </body>
 </html>

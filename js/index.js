@@ -20,22 +20,22 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Menu button not found');
     }
 
-    // 购物车侧边抽屉逻辑
-    const cartBtn = document.querySelector('.cart-btn');
+    // Cart Drawer
+    const openCartBtn = document.querySelector('.hero-header .cart-btn');
+    const closeCartBtn = document.querySelector('.cart-menu .cart-btn');
     const cartDrawer = document.querySelector('.cart-drawer');
-    const cartOverlay = document.querySelector('.cart-overlay');
-    const closeCartBtn = document.querySelector('.close-cart');
+    const cartOverlay = document.querySelector('.cart-overlay')
 
-    if (cartBtn && cartDrawer && cartOverlay && closeCartBtn) {
-        cartBtn.addEventListener('click', () => {
+    if (openCartBtn && cartDrawer && cartOverlay) {
+        openCartBtn.addEventListener('click', () => {
             cartDrawer.classList.add('active');
             cartOverlay.classList.add('active');
         });
-        cartOverlay.addEventListener('click', () => {
+        closeCartBtn.addEventListener('click', () => {
             cartDrawer.classList.remove('active');
             cartOverlay.classList.remove('active');
         });
-        closeCartBtn.addEventListener('click', () => {
+        cartOverlay.addEventListener('click', () => {
             cartDrawer.classList.remove('active');
             cartOverlay.classList.remove('active');
         });
