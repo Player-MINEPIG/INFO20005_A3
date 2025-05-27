@@ -11,6 +11,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Index logo navigation
+    const logos = document.getElementsByClassName('logo');
+    for (let i = 0; i < logos.length; i++) {
+        logos[i].addEventListener('click', () => {
+            window.location.href = '/pages/index.html';
+        });
+    }
+
+
     // Fold menu button
     let isFolded = false;
     let foldMenuButton = document.querySelector('.menu-btn');
