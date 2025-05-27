@@ -276,6 +276,7 @@ main {
         flex: 1;
         display: flex;
         flex-direction: row;
+        width: 100%;
         align-items: flex-start;
     }
 
@@ -283,9 +284,10 @@ main {
         flex: 1;
         display: flex;
         flex-direction: column;                  
-        align-items: center;    
+        align-items: center;
+        justify-content: center;
         height: 100%;
-        width: auto;           
+        width: auto;          
         border-radius: 5px;
         padding: var(--space-2);
         padding-left: calc(var(--space-2) + var(--space-2));
@@ -295,44 +297,34 @@ main {
     }
 
     .product-card .product-info {
-        order: 1;
+        flex: 1;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: var(--space-1);
     }
-    
-    .product-info h2 {
-        grid-area: info-title;
-        font-size: 1.5rem;
+
+    .product-card .product-info h2{
+        font-size: 3rem;
         font-weight: 700;
         color: #000;
-    }
-    
-    .product-info p {
-        grid-area: info-promo;
-        font-size: 0.875rem;
-        font-weight: 400;
-        color: #000;
+        text-align: center;
     }
 
-    .view-more {
-        order: 2;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        border-radius: 5px;
-        border: 1px solid #000;
+    .product-card .product-info p {
+        display: none;
     }
-    
-    .product-img {
-        order: 3;
-        object-fit: cover;
+
+    .product-card .view-more {
+        display: none;
     }
-    
-    .product-img img {
+
+    .product-card .product-img {
+        flex: 1;
+    }
+
+    .product-card .product-img img {
         object-fit: contain;
     }
     
@@ -341,6 +333,65 @@ main {
         z-index: 4;
         padding: var(--space-2);
         margin: 0;
+    }
+
+    .espresso-card:hover {
+        flex: 2;
+    }
+
+    .espresso-card:hover .product-info {
+        flex: 1;
+        margin-top: var(--space-3);
+        order: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-1);
+    }
+    
+    .espresso-card:hover .product-info h2 {
+        grid-area: info-title;
+        font-size: 4rem;
+        font-weight: 700;
+        color: #000;
+        text-align: center;
+    }
+    
+    .espresso-card:hover .product-info p {
+        display: block;
+        grid-area: info-promo;
+        font-size: 2rem;
+        font-weight: 400;
+        color: #000;
+    }
+
+    .espresso-card:hover .view-more {
+        flex: 1;
+        order: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .espresso-card:hover .view-more a {
+        font-size: 2rem;
+        font-weight: 400;
+        color: #000;
+        text-decoration: none;
+        padding: var(--space-1);
+        border-radius: 5px;
+        border: 2px solid #000;
+    }
+
+    .espresso-card:hover .product-img {
+        flex: 1;
+        order: 3;
+    }
+
+    .espresso-card:hover .product-img img {
+        object-fit: contain;
     }
     
     .blend-card {
