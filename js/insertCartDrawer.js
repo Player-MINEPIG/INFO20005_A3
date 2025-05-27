@@ -3,12 +3,12 @@ export function initCartDrawer() {
   async function fetchCartDrawerHTML() {
     const data = document.body.dataset.page;
     if (data === 'index') {
-        const res = await fetch(`/components/cart-drawers/homepage-cart-drawer.html`);
+        const res = await fetch(`../components/cart-drawers/homepage-cart-drawer.html`);
         if (!res.ok) throw new Error('Failed to load homepage cart drawer HTML');
         return await res.text();
     }
     else if (data === 'shop') {
-        const res = await fetch(`/components/cart-drawers/shop-cart-drawer.html`);
+        const res = await fetch(`../components/cart-drawers/shop-cart-drawer.html`);
         if (!res.ok) throw new Error('Failed to load shop cart drawer HTML');
         return await res.text();
     }
