@@ -264,8 +264,7 @@ main {
         flex-direction: column;
         width: 100%;
         height: 100%;
-        padding: var(--space-2);
-        padding-bottom: 0;
+        padding: 0;
     }
 
     .shop-section h1 {
@@ -336,22 +335,24 @@ main {
     }
     
     .espresso-card {
-        background: linear-gradient(180deg, #BE5036 0%, #593026 100%);
+        background: linear-gradient(270deg, #BE5036 0%, #593026 200%);
         z-index: 4;
+        padding: var(--space-2);
+        margin: 0;
     }
     
     .blend-card {
-        background: linear-gradient(180deg, #3D8A64 0%, #244233 100%);
+        background: linear-gradient(270deg, #3D8A64 0%, #244233 200%);
         z-index: 3;
     }
     
     .filter-card {
-        background: linear-gradient(180deg, #C380AC 0%, #5D3F53 100%);
+        background: linear-gradient(270deg, #C380AC 0%, #5D3F53 200%);
         z-index: 2;
     }
     
     .accessories-card {
-        background: linear-gradient(180deg, #AEB4CC 0%, #666A78 100%);
+        background: linear-gradient(270deg, #AEB4CC 0%, #666A78 100%);
         z-index: 1;
     }
 }
