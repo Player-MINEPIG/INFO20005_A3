@@ -167,3 +167,113 @@ main {
     border-radius: 5px 5px 0 0;
     border: none;
 }
+
+/* Desktop styles */
+@media (min-width: 1368px) {
+
+    .mobile-only {
+        display: none;
+    }
+
+    main {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+    }
+
+    .side-bar {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        background: linear-gradient(90deg, #B5B5A3 0%, #E0E0D5 100%);
+        align-items: center;
+    }
+
+    .side-bar .logo {
+        order: 1;
+        margin: var(--space-3);
+    }
+
+    .side-bar .logo img {
+        width: 8rem;
+        height: auto;
+    }
+
+    .side-bar .cart-btn {
+        order: 2;
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+    }
+
+    .side-bar .cart-btn img {
+        width: 3rem;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .side-bar .menu-group {
+        order: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-3);
+        margin: var(--space-3) 0 var(--space-3) 0;
+    }
+
+    .side-bar .menu-btn {
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+    }
+
+    .side-bar .menu-group .menu-btn img {
+        width: 2rem;
+        height: auto;
+        object-fit: contain;
+        transform: rotate(90deg);
+    }
+
+    .side-bar .main-menu ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-2);
+        margin: 0 0 var(--space-3) 0;
+    }
+
+    .side-bar .main-menu li a {
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: #000;
+        text-decoration: none;
+        transition: color 0.2s;
+        margin: var(--space-2);
+    }
+
+    .shop-section {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        padding: var(--space-2);
+    }
+
+    .shop-section h1 {
+    }
+
+    .product-list {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+
+        gap: var(--space-2);
+        padding: var(--space-2);
+        padding-bottom: 0;
+    }
+}
