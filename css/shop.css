@@ -333,10 +333,12 @@ main {
         z-index: 4;
         padding: var(--space-2);
         margin: 0;
+        transition: box-shadow 0.3s, transform 0.3s;
     }
 
     .espresso-card:hover {
         flex: 2;
+        transition: flex 0.3s;
     }
 
     .espresso-card:hover .product-info {
@@ -348,6 +350,7 @@ main {
         align-items: center;
         justify-content: center;
         gap: var(--space-1);
+        transition: margin-top 0.3s, gap 0.3s, font-size 0.3s, color 0.3s;
     }
     
     .espresso-card:hover .product-info h2 {
@@ -356,6 +359,7 @@ main {
         font-weight: 700;
         color: #000;
         text-align: center;
+        transition: font-size 0.3s, color 0.3s;
     }
     
     .espresso-card:hover .product-info p {
@@ -364,6 +368,7 @@ main {
         font-size: 2rem;
         font-weight: 400;
         color: #000;
+        transition: display 0.3s, font-size 0.3s, color 0.3s, opacity 0.3s;
     }
 
     .espresso-card:hover .view-more {
@@ -373,6 +378,7 @@ main {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        transition: display 0.3s;
     }
 
     .espresso-card:hover .view-more a {
@@ -383,6 +389,13 @@ main {
         padding: var(--space-1);
         border-radius: 5px;
         border: 2px solid #000;
+        transition: 
+            background 0.3s,
+            color 0.3s,
+            border-color 0.3s,
+            font-size 0.3s,
+            padding 0.3s,
+            border-radius 0.3s;
     }
 
     .espresso-card:hover .product-img {
