@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const shopCard = document.querySelector('.shop-card');
     if (shopCard) {
         shopCard.addEventListener('click', () => {
-            window.location.href = '/INFO20005/pages/shop.html';
+            window.location.href = '/INFO20005_A3/pages/shop.html';
         });
     }
 
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const logos = document.getElementsByClassName('logo');
     for (let i = 0; i < logos.length; i++) {
         logos[i].addEventListener('click', () => {
-            window.location.href = '/INFO20005/pages/index.html';
+            window.location.href = '/INFO20005_A3/pages/index.html';
         });
     }
 
