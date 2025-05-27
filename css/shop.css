@@ -339,6 +339,7 @@ main {
 
     .product-card .product-img {
         flex: 1;
+        order: 3;
     }
 
     .product-card .product-img img {
@@ -350,7 +351,6 @@ main {
         z-index: 4;
         padding: var(--space-2);
         margin: 0;
-        transition: box-shadow 0.3s, transform 0.3s;
     }
     
     .blend-card {
@@ -434,20 +434,5 @@ main {
         padding: var(--space-1);
         border-radius: 5px;
         border: 2px solid #000;
-    }
-
-    .espresso-card:hover .product-img,
-    .blend-card:hover .product-img,
-    .filter-card:hover .product-img,
-    .accessories-card:hover .product-img {
-        flex: 1;
-        order: 3;
-    }
-
-    .espresso-card:hover .product-img img,
-    .blend-card:hover .product-img img,
-    .filter-card:hover .product-img img,
-    .accessories-card:hover .product-img img {
-        object-fit: contain;
     }
 }
