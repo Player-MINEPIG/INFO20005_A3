@@ -15,6 +15,7 @@ html {
     --space-2: 1rem;
     --space-3: 2rem;
     --radius: 5px;
+    --animation-duration: 5s;
 }
 
 body {
@@ -294,7 +295,7 @@ main {
         margin-left: calc(-1 * var(--space-2));
         flex-shrink: 0;
         position: relative;
-        transition: flex 0.3s;
+        transition: flex var(--animation-duration);
     }
 
     .product-card .product-info {
@@ -305,10 +306,10 @@ main {
         justify-content: center;
         gap: var(--space-1);
         transition: 
-            margin-top 0.3s, 
-            gap 0.3s, 
-            font-size 0.3s, 
-            color 0.3s;
+            margin-top var(--animation-duration), 
+            gap var(--animation-duration), 
+            font-size var(--animation-duration), 
+            color var(--animation-duration),
     }
 
     .product-card .product-info h2{
@@ -316,30 +317,42 @@ main {
         font-weight: 700;
         color: #000;
         text-align: center;
-        transition: font-size 0.3s, color 0.3s;
+        transition: 
+            font-size var(--animation-duration), 
+            color var(--animation-duration),
+            padding var(--animation-duration);
     }
 
     .product-card .product-info p {
-        display: none;
+        visibility: hidden;
+        opacity: 0;
+        max-height: 0px;
+        overflow: hidden;
+        transition: visibility var(--animation-duration), opacity var(--animation-duration), max-height var(--animation-duration);
     }
 
     .product-card .view-more {
-        display: none;
+        visibility: hidden;
+        opacity: 0;
+        max-height: 0px;
+        overflow: hidden;
+        transition: visibility var(--animation-duration), opacity var(--animation-duration), max-height var(--animation-duration);
     }
 
     .product-card .view-more a {
         transition: 
-            background 0.3s,
-            color 0.3s,
-            border-color 0.3s,
-            font-size 0.3s,
-            padding 0.3s,
-            border-radius 0.3s;
+            background var(--animation-duration),
+            color var(--animation-duration),
+            border-color var(--animation-duration),
+            font-size var(--animation-duration),
+            padding var(--animation-duration),
+            border-radius var(--animation-duration);
     }
 
     .product-card .product-img {
         flex: 1;
         order: 3;
+        transition: padding var(--animation-duration);
     }
 
     .product-card .product-img img {
@@ -404,7 +417,9 @@ main {
     .blend-card:hover .product-info p,
     .filter-card:hover .product-info p,
     .accessories-card:hover .product-info p {
-        display: block;
+        visibility: visible;
+        opacity: 1;
+        max-height: 4rem;
         grid-area: info-promo;
         font-size: 2rem;
         font-weight: 400;
@@ -415,6 +430,9 @@ main {
     .blend-card:hover .view-more,
     .filter-card:hover .view-more,
     .accessories-card:hover .view-more {
+        visibility: visible;
+        opacity: 1;
+        max-height: 4rem;
         flex: 1;
         order: 2;
         display: flex;
