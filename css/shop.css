@@ -188,22 +188,21 @@ main {
         height: 100%;
         display: flex;
         flex-direction: column;
-        height: 100%;
         background: linear-gradient(90deg, #B5B5A3 0%, #E0E0D5 100%);
         align-items: center;
     }
 
-    .side-bar .logo {
+    .logo {
         order: 1;
         margin: var(--space-3);
     }
 
-    .side-bar .logo img {
+    .logo img {
         width: 8rem;
         height: auto;
     }
 
-    .side-bar .cart-btn {
+    .cart-btn {
         order: 2;
         background: none;
         border: none;
@@ -211,13 +210,13 @@ main {
         cursor: pointer;
     }
 
-    .side-bar .cart-btn img {
+    .cart-btn img {
         width: 3rem;
         height: auto;
         object-fit: contain;
     }
 
-    .side-bar .menu-group {
+    .menu-group {
         order: 3;
         display: flex;
         flex-direction: column;
@@ -226,7 +225,7 @@ main {
         margin: var(--space-3) 0 var(--space-3) 0;
     }
 
-    .side-bar .menu-btn {
+    .menu-btn {
         background: none;
         border: none;
         padding: 0;
@@ -235,30 +234,30 @@ main {
         transition: transform 0.3s ease;
     }
 
-    .side-bar .menu-btn.active{
+    .menu-btn.active{
         transform: rotate(270deg);
     }
 
-    .side-bar .menu-group .menu-btn img {
+    .menu-group .menu-btn img {
         width: 2rem;
         height: auto;
         object-fit: contain;
     }
 
-    .side-bar .main-menu.folded {
+    .main-menu.folded {
         display: none;
     }
 
-    .side-bar .main-menu ul {
+    .main-menu ul {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: var(--space-2);
+        gap: var(--space-3);
         margin: 0 0 var(--space-3) 0;
     }
 
-    .side-bar .main-menu li a {
+    .main-menu li a {
         font-size: 1.5rem;
         font-weight: 400;
         color: #000;
