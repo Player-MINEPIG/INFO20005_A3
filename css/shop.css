@@ -15,7 +15,7 @@ html {
     --space-2: 1rem;
     --space-3: 2rem;
     --radius: 5px;
-    --animation-duration: 5s;
+    --animation-duration: 0.5s;
 }
 
 body {
@@ -300,16 +300,17 @@ main {
 
     .product-card .product-info {
         flex: 1;
+        order: 1;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: var(--space-1);
         transition: 
+            display var(--animation-duration),
             margin-top var(--animation-duration), 
-            gap var(--animation-duration), 
             font-size var(--animation-duration), 
-            color var(--animation-duration),
+            color var(--animation-duration);
     }
 
     .product-card .product-info h2{
@@ -324,35 +325,42 @@ main {
     }
 
     .product-card .product-info p {
-        visibility: hidden;
-        opacity: 0;
-        max-height: 0px;
+        display: flex;
+        transform-origin: center;
         overflow: hidden;
-        transition: visibility var(--animation-duration), opacity var(--animation-duration), max-height var(--animation-duration);
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: #000; 
+        transition: font-size var(--animation-duration);
     }
 
     .product-card .view-more {
-        visibility: hidden;
-        opacity: 0;
-        max-height: 0px;
+        display: flex;
         overflow: hidden;
-        transition: visibility var(--animation-duration), opacity var(--animation-duration), max-height var(--animation-duration);
+        transform-origin: center;
+        flex: 1;
+        order: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: display var(--animation-duration);
     }
 
     .product-card .view-more a {
-        transition: 
-            background var(--animation-duration),
-            color var(--animation-duration),
-            border-color var(--animation-duration),
-            font-size var(--animation-duration),
-            padding var(--animation-duration),
-            border-radius var(--animation-duration);
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: #000;
+        text-decoration: none;
+        padding: var(--space-1);
+        border-radius: 5px;
+        border: 2px solid #000;
+        transition: font-size var(--animation-duration);
     }
 
     .product-card .product-img {
         flex: 1;
         order: 3;
-        transition: padding var(--animation-duration);
     }
 
     .product-card .product-img img {
@@ -392,53 +400,29 @@ main {
     .blend-card:hover .product-info,
     .filter-card:hover .product-info,
     .accessories-card:hover .product-info {
-        flex: 1;
         margin-top: var(--space-3);
-        order: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: var(--space-1);
     }
     
     .espresso-card:hover .product-info h2,
     .blend-card:hover .product-info h2,
     .filter-card:hover .product-info h2,
     .accessories-card:hover .product-info h2 {
-        grid-area: info-title;
         font-size: 4rem;
-        font-weight: 700;
-        color: #000;
-        text-align: center;
     }
     
     .espresso-card:hover .product-info p,
     .blend-card:hover .product-info p,
     .filter-card:hover .product-info p,
     .accessories-card:hover .product-info p {
-        visibility: visible;
-        opacity: 1;
-        max-height: 4rem;
-        grid-area: info-promo;
         font-size: 2rem;
-        font-weight: 400;
-        color: #000;
     }
 
     .espresso-card:hover .view-more,
     .blend-card:hover .view-more,
     .filter-card:hover .view-more,
     .accessories-card:hover .view-more {
-        visibility: visible;
-        opacity: 1;
-        max-height: 4rem;
         flex: 1;
         order: 2;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
     }
 
     .espresso-card:hover .view-more a,
@@ -446,11 +430,5 @@ main {
     .filter-card:hover .view-more a,
     .accessories-card:hover .view-more a {
         font-size: 2rem;
-        font-weight: 400;
-        color: #000;
-        text-decoration: none;
-        padding: var(--space-1);
-        border-radius: 5px;
-        border: 2px solid #000;
     }
 }
