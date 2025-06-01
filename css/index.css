@@ -324,12 +324,6 @@ main {
     display: none;
   }
 
-  .main-menu.folded {
-    max-height: 0;
-    opacity: 0;
-    pointer-events: none;
-  }
-
   .main-menu ul {
     display: flex;
     flex-direction: row;
