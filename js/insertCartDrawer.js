@@ -25,11 +25,13 @@ export function initCartDrawer() {
     function showCartDrawer() {
         document.querySelector('.cart-drawer').classList.add('active');
         document.querySelector('.cart-overlay').classList.add('active');
+        document.dispatchEvent(new Event('cartDrawerShown'));
     }
-
+    
     function hideCartDrawer() {
         document.querySelector('.cart-drawer').classList.remove('active');
         document.querySelector('.cart-overlay').classList.remove('active');
+        document.dispatchEvent(new Event('cartDrawerHidden'));
     }
 
     const openCartBtn = document.querySelector('.cart-btn');
