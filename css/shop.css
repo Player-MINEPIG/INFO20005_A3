@@ -231,13 +231,22 @@ main {
         border: none;
         padding: 0;
         cursor: pointer;
+        transform: rotate(90deg);
+        transition: transform 0.3s ease;
+    }
+
+    .side-bar .menu-btn .active{
+        transform: rotate(270deg);
     }
 
     .side-bar .menu-group .menu-btn img {
         width: 2rem;
         height: auto;
         object-fit: contain;
-        transform: rotate(90deg);
+    }
+
+    .side-bar .main-menu .folded {
+        display: none;
     }
 
     .side-bar .main-menu ul {
@@ -331,6 +340,7 @@ main {
         font-size: 1.5rem;
         font-weight: 400;
         color: #000; 
+        text-align: center;
         transition: font-size var(--animation-duration);
     }
 
