@@ -6,10 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initSidebar('.side-bar');
 });
 
-// Index logo navigation
-document.addEventListener('click', function(e) {
-    if (e.target.closest('.logo')) {
-        window.location.href = './index.html';
-    }
-});
+// Index logo navigation is handled by the sidebar module
+
 
