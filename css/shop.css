@@ -167,7 +167,15 @@ main {
     background: linear-gradient(0deg, #CDB68D 0%, #FFE7BA 100%);
     border-radius: 5px 5px 0 0;
     border: none;
+    padding: var(--space-1);
 }
+
+.back-btn a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1rem;
+}
+
 
 /* Desktop styles */
 @media (min-width: 1368px) {
