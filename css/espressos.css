@@ -432,10 +432,28 @@ main {
         grid-area: detail;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         justify-content: flex-start;
+        align-self: flex-start;
+        margin: var(--space-2);
         gap: var(--space-1);
     }
+
+    .product-detail h3 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #000;
+        margin-top: var(--space-2);
+    }
+
+    .product-detail p {
+        font-size: 1.5rem;
+        opacity: 0.6;
+        font-weight: 400;
+        color: #000;
+    }
+    
+    
     
     .hulia-card {
         flex: 4;
