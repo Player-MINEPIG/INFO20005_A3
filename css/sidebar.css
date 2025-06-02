@@ -1,13 +1,5 @@
 /* Side bar */
 @media (min-width: 1368px) {
-    .side-bar {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        background: linear-gradient(90deg, #B5B5A3 0%, #E0E0D5 100%);
-        align-items: center;
-    }
-
     .logo {
         order: 1;
         margin: var(--space-3);

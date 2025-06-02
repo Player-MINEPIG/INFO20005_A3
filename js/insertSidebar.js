@@ -14,7 +14,7 @@ export function initSidebar(positionSelector) {
     fetchSidebarHTML().then(sidebarHTML => {
         document.querySelector(positionSelector).insertAdjacentHTML('afterbegin', sidebarHTML);
 
-        // Bind open cart drawer event
+        // Bind cart drawer events
         const openCartBtn = document.querySelector('.side-bar .cart-btn');
         if (openCartBtn) {
             openCartBtn.addEventListener('click', showCartDrawer);
@@ -23,17 +23,27 @@ export function initSidebar(positionSelector) {
         if (closeCartBtn) {
             closeCartBtn.addEventListener('click', hideCartDrawer);
         }
-    });
 
-    // Fold menu button
-    let isFolded = false;
-    document.addEventListener('click', function (e) {
-        if (e.target.closest('.menu-btn')) {
-            const menuGroup = e.target.closest('.menu-group');
-            if (menuGroup) {
-                isFolded = !isFolded;
-                syncAllMenuGroups(isFolded);
+        // Bind menu button events
+        let isFolded = false;
+        const menuGroups = document.getElementsByClassName('menu-group');
+        for (let i = 0; i < menuGroups.length; i++) {
+            const menuGroup = menuGroups[i];
+            const menuBtn = menuGroup.querySelector('.menu-btn');
+            if (menuBtn) {
+                menuBtn.addEventListener('click', () => {
+                    isFolded = !isFolded;
+                    syncAllMenuGroups(isFolded);
+                });
             }
+        }
+
+        // Bind logo events
+        const logo = document.querySelectorAll('.logo');
+        for (let i = 0; i < logo.length; i++) {
+            logo[i].addEventListener('click', () => {
+                window.location.href = './index.html';
+            });
         }
     });
 
