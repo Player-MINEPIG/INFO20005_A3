@@ -10,6 +10,7 @@ export function initSidebar(positionSelector) {
         }
     }
 
+    let isFolded = false;
     // Insert HTML and bind events when page loads
     fetchSidebarHTML().then(sidebarHTML => {
         document.querySelector(positionSelector).insertAdjacentHTML('afterbegin', sidebarHTML);
@@ -25,7 +26,6 @@ export function initSidebar(positionSelector) {
         }
 
         // Bind menu button events
-        let isFolded = false;
         const menuGroups = document.getElementsByClassName('menu-group');
         for (let i = 0; i < menuGroups.length; i++) {
             const menuGroup = menuGroups[i];

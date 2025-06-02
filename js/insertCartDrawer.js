@@ -10,8 +10,8 @@ export function initCartDrawer() {
         if (!res.ok) throw new Error('Failed to load homepage cart drawer HTML');
         return await res.text();
     }
-    else if (data === 'shop') {
-        const res = await fetch(`../components/cart-drawers/shop-cart-drawer.html`);
+    else {
+        const res = await fetch(`../components/cart-drawers/non-homepage-cart-drawer.html`);
         if (!res.ok) throw new Error('Failed to load shop cart drawer HTML');
         return await res.text();
     }
