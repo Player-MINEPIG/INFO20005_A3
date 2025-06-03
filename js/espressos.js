@@ -10,8 +10,17 @@ document.addEventListener('DOMContentLoaded', () => {
             expandProductCard(card);
         });
     });
+
+    const sizeOptions = document.querySelectorAll('.size-option');
+    sizeOptions.forEach(option => {
+        option.addEventListener('click', () => {
+            console.log("size option clicked");
+            onSizeOptionClick(option, sizeOptions);
+        });
+    });
 });
 
+// Expand product card animation
 function expandProductCard(targetCard) {
     if (targetCard.classList.contains('expanded')) return;
     const productCards = document.querySelectorAll('.product-card');
@@ -71,6 +80,20 @@ function fadeOut(card) {
 function fadeIn(card) {
     card.classList.remove('fade-out');
     card.classList.add('fade-in');
+}
+
+// Size option click
+function onSizeOptionClick(targetOption, options) {
+    if (targetOption.classList.contains('selected')) {
+        options.forEach(option => {
+            option.classList.remove('selected');
+        });
+    } else {
+        options.forEach(option => {
+            option.classList.remove('selected');
+        });
+        targetOption.classList.add('selected');
+    }
 }
 
 // Index logo navigation is handled by the sidebar module
