@@ -19,10 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Add size option click handler
-    const sizeOptions = document.querySelectorAll('.size-option');
-    sizeOptions.forEach(option => {
-        option.addEventListener('click', () => {
-            onSizeOptionClick(option, sizeOptions);
+    const sizes = document.querySelectorAll('.size');
+    sizes.forEach(size => {
+        const options = size.querySelectorAll('.size-option');
+        options.forEach(option => {
+            option.addEventListener('click', () => {
+                onSizeOptionClick(option, options, size);
+            });
         });
     });
 
@@ -101,16 +104,20 @@ function fadeIn(card) {
 }
 
 // Size option click
-function onSizeOptionClick(targetOption, options) {
+function onSizeOptionClick(targetOption, options, size) {
+    const addToCartBtn = size.closest('.product-info').querySelector('.add-to-cart');
+    
     if (targetOption.classList.contains('selected')) {
         options.forEach(option => {
             option.classList.remove('selected');
         });
+        addToCartBtn.classList.remove('available');
     } else {
         options.forEach(option => {
             option.classList.remove('selected');
         });
         targetOption.classList.add('selected');
+        addToCartBtn.classList.add('available');
     }
 }
 
