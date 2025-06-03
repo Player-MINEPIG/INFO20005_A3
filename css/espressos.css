@@ -173,6 +173,7 @@ main {
 .product-img img {
     max-width: 100%;
     object-fit: cover;
+    border-radius: var(--radius);
 }
 
 .hulia-card {
@@ -190,16 +191,14 @@ main {
 
 /* Back button */
 .back-btn {
-    background: linear-gradient(180deg, #BE5036 0%, #593026 200%);
+    background: linear-gradient(180deg, #D3BD9A 0%, #A68E67 100%);
     border-radius: 5px 5px 0 0;
     border: none;
     padding: var(--space-1);
-}
-
-.back-btn a {
     text-decoration: none;
     color: #000;
     font-size: 1rem;
+    text-align: center;
 }
 
 /* Desktop styles */

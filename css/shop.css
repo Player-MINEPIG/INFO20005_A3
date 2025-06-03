@@ -164,18 +164,15 @@ main {
 }
 
 .back-btn {
-    background: linear-gradient(0deg, #CDB68D 0%, #FFE7BA 100%);
+    background: linear-gradient(to bottom, #E0E0D5, #B5B5A3);
     border-radius: 5px 5px 0 0;
     border: none;
     padding: var(--space-1);
-}
-
-.back-btn a {
     text-decoration: none;
     color: #000;
     font-size: 1rem;
+    text-align: center;
 }
-
 
 /* Desktop styles */
 @media (min-width: 1368px) {
@@ -310,6 +307,7 @@ main {
 
     .product-card .product-img img {
         object-fit: contain;
+        border-radius: var(--radius);
     }
     
     .espresso-card {
