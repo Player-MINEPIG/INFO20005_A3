@@ -2,8 +2,15 @@ import { initCartDrawer } from './insertCartDrawer.js';
 import { initSidebar } from './insertSidebar.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    // Initialize cart drawer
     initCartDrawer();
+
+    // Initialize sidebar
+    // Index logo navigation is handled by the sidebar module
     initSidebar('.side-bar');
+
+    // Add product card expand animation
     const productCards = document.querySelectorAll('.product-card');
     productCards.forEach(card => {
         card.addEventListener('mouseenter', () => {
@@ -11,11 +18,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Add size option click handler
     const sizeOptions = document.querySelectorAll('.size-option');
     sizeOptions.forEach(option => {
         option.addEventListener('click', () => {
-            console.log("size option clicked");
             onSizeOptionClick(option, sizeOptions);
+        });
+    });
+
+    // Add quantity click handler
+    const quantityInputs = document.querySelectorAll('.quantity');
+    quantityInputs.forEach(input => {
+        input.querySelector('.minus-icon').addEventListener('click', () => {
+            onMinusIconClick(input);
+        });
+        input.querySelector('.plus-icon').addEventListener('click', () => {
+            onPlusIconClick(input);
         });
     });
 });
@@ -96,5 +114,17 @@ function onSizeOptionClick(targetOption, options) {
     }
 }
 
-// Index logo navigation is handled by the sidebar module
+// Quantity click
+function onMinusIconClick(targetInput) {
+    const quantityNumber = targetInput.querySelector('.quantity-number');
+    const quantity = parseInt(quantityNumber.value);
+    quantityNumber.value = Math.max(1, quantity - 1);
+}
+
+function onPlusIconClick(targetInput) {
+    const quantityNumber = targetInput.querySelector('.quantity-number');
+    const quantity = parseInt(quantityNumber.value);
+    quantityNumber.value = Math.min(99, quantity + 1);
+}
+
 

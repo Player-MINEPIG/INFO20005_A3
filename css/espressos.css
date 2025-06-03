@@ -412,6 +412,9 @@ main {
         border: 3px solid #000;
         padding: var(--space-1);
         border-radius: var(--radius);
+        max-width: 4rem;
+        text-align: center;
+        background: #00000000;
     }
 
     .product-card.expanded .product-info .quantity .plus-icon {
