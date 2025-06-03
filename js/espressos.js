@@ -18,6 +18,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Add product detail navigation on mobile
+    const chinaCard = document.querySelector('.china-card');
+    if (chinaCard) {
+        chinaCard.addEventListener('click', () => {
+            if (window.innerWidth < 1368) {
+                window.location.href = './espressos-China.html';
+            }
+        });
+    }
+    
+    const huliaCard = document.querySelector('.hulia-card');
+    if (huliaCard) {
+        huliaCard.addEventListener('click', () => {
+            if (window.innerWidth < 1368) {
+                window.location.href = './espressos-Colombia.html';
+            }
+        });
+    }
+
     // Add to cart availability
     let addToCartAvailable = false;
 
