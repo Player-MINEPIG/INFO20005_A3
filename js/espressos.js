@@ -16,7 +16,6 @@ function expandProductCard(targetCard) {
     if (targetCard.classList.contains('expanded')) return;
     const productCards = document.querySelectorAll('.product-card');
     productCards.forEach(card => {
-        // card.classList.remove('expanded');
         fadeOut(card);
 
         card.removeEventListener('transitionend', onTransitionEnd);
@@ -24,40 +23,42 @@ function expandProductCard(targetCard) {
         card.addEventListener('transitionend', onTransitionEnd);
     });
 
-    targetCard.classList.add('expanded');
-
     function onTransitionEnd(e) {
-        console.log(e.propertyName);
-        console.log(e.currentTarget);
-        console.log("transitionend");
-        
-
         // opacity
         if (e.propertyName === 'opacity') {
-            onFadeOutEnd(e);
-            console.log("fadeoutend");
-            console.log("----------");
+            onFadeEnd(e);
             return;
         };
 
         // flex
         if (e.propertyName === 'flex-grow') {
             onFlexTransitionEnd(e);
-            console.log("flextransitionend");
-            console.log("----------");
             return;
         };
     }
 
-    function onFadeOutEnd(e) {
-        if (e.currentTarget === targetCard) {
-            targetCard.classList.add('expanded');
-        } else {
-            e.currentTarget.classList.remove('expanded');
+    function onFadeEnd(e) {
+        // check if fade out
+        const opacity = window.getComputedStyle(e.currentTarget.querySelector('.product-info')).opacity;
+        if (opacity === '0') {
+            const detailPs = e.currentTarget.querySelectorAll('.product-detail p');
+            detailPs.forEach(p => {
+                p.style.display = 'none';
+            });
+
+            if (e.currentTarget === targetCard) {
+                targetCard.classList.add('expanded');
+            } else {
+                e.currentTarget.classList.remove('expanded');
+            }
         }
     }
 
     function onFlexTransitionEnd(e) {
+        const detailPs = e.currentTarget.querySelectorAll('.product-detail p');
+        detailPs.forEach(p => {
+            p.style.display = 'flex';
+        });
         fadeIn(e.currentTarget);
     }
 }
