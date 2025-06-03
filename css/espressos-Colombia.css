@@ -151,6 +151,8 @@ main {
 .product-info img {
     order: 3;
     max-width: 100%;
+    border-radius: var(--radius);
+    margin-top: var(--space-1);
 }
 
 .product-info .price {
@@ -281,6 +283,7 @@ main {
 .product-img img {
     max-width: 100%;
     object-fit: cover;
+    border-radius: var(--radius);
 }
 
 .divider.mobile-only {
@@ -426,6 +429,10 @@ main {
     }
 
     .product-card > * {
+        display: none;
+    }
+
+    .product-card .product-detail {
         display: none;
     }
 
@@ -614,6 +621,7 @@ main {
     }
 
     .product-card.expanded .product-img img {
+        margin-top: 0;
         object-fit: cover;
     }
 
