@@ -59,7 +59,10 @@ function updateCartProducts() {
     const cartProducts = document.querySelector('.cart-products');
     cartProducts.innerHTML = '';
     const cart = getCart();
+    let totalPrice = 0;
     cart.forEach(product => {
+        const price = product.pricePerUnit * product.quantity;
+        totalPrice += price;
         cartProducts.innerHTML += `
             <div class="cart-product" style="background: ${productNameBackgroundMap[product.name]}">
                 <h3>${product.name}</h3>
@@ -69,7 +72,7 @@ function updateCartProducts() {
                 </span>
                 <img class="cart-product-img" src="${productNameImgMap[product.name]}" alt="${product.name}">
                 <span class="cart-product-price">
-                    <span class="cart-product-price-number">A$${product.pricePerUnit * product.quantity}</span>
+                    <span class="cart-product-price-number">A$${price}</span>
                 </span>
                 <span class="cart-product-quantity">
                     <img class="minus-icon" src="../assets/images/triangle.svg" alt="Minus">
@@ -79,12 +82,17 @@ function updateCartProducts() {
             </div>
         `;
     });
+    
+    // Bind events
     document.querySelectorAll('.cart-product-quantity .minus-icon').forEach(icon => {
         icon.addEventListener('click', onCartMinusIconClick);
     });
     document.querySelectorAll('.cart-product-quantity .plus-icon').forEach(icon => {
         icon.addEventListener('click', onCartPlusIconClick);
     });
+
+    // Update subtotal
+    document.querySelector('.subtotal-amount').textContent = `A$${totalPrice}`;
 }
 
 function onCartMinusIconClick(e) {
