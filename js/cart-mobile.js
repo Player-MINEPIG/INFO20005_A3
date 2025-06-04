@@ -1,9 +1,9 @@
-import { initCartDrawer } from './insertCartDrawer.js';
 import { initHeader, getLastPage } from './insertHeader.js';
+import { updateCartProducts } from './insertCartDrawer.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     initHeader();
-    initCartDrawer();
+    updateCartProducts();
 });
 
 // Index logo navigation is handled by the sidebar module

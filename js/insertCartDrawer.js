@@ -55,7 +55,7 @@ let productNameBackgroundMap = {
     'Colombia - China Alta': 'linear-gradient(180deg, #A65A47 0%, #894534 100%)'
 }
 
-function updateCartProducts() {
+export function updateCartProducts() {
     const cartProducts = document.querySelector('.cart-products');
     cartProducts.innerHTML = '';
     const cart = getCart();
