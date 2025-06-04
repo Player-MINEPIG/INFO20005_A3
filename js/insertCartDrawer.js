@@ -1,5 +1,5 @@
 import { initSidebar } from './insertSidebar.js';
-import { getCart } from './cartOperation.js';
+import { addToCart, removeFromCart, getCart, updateCartBadge } from './cartOperation.js';
 
 export function initCartDrawer() {
     // Load different cart drawer HTML for different pages
@@ -79,4 +79,38 @@ function updateCartProducts() {
             </div>
         `;
     });
+    document.querySelectorAll('.cart-product-quantity .minus-icon').forEach(icon => {
+        icon.addEventListener('click', onCartMinusIconClick);
+    });
+    document.querySelectorAll('.cart-product-quantity .plus-icon').forEach(icon => {
+        icon.addEventListener('click', onCartPlusIconClick);
+    });
+}
+
+function onCartMinusIconClick(e) {
+    const cartProduct = e.target.closest('.cart-product');
+    const quantity = parseInt(cartProduct.querySelector('.quantity-number').value);
+    const product = {
+        name: cartProduct.querySelector('h3').textContent,
+        size: cartProduct.querySelector('.cart-product-size-option').textContent,
+        pricePerUnit: parseFloat(cartProduct.querySelector('.cart-product-price-number').textContent.replace(/[^\d.]/g, '')) / quantity,
+        quantity: 1,
+    };
+    removeFromCart(product);
+    updateCartProducts();
+    updateCartBadge();
+}
+
+function onCartPlusIconClick(e) {
+    const cartProduct = e.target.closest('.cart-product');
+    const quantity = parseInt(cartProduct.querySelector('.quantity-number').value);
+    const product = {
+        name: cartProduct.querySelector('h3').textContent,
+        size: cartProduct.querySelector('.cart-product-size-option').textContent,
+        pricePerUnit: parseFloat(cartProduct.querySelector('.cart-product-price-number').textContent.replace(/[^\d.]/g, '')) / quantity,
+        quantity: 1,
+    };
+    addToCart(product);
+    updateCartProducts();
+    updateCartBadge();
 }
