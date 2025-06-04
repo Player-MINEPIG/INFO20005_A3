@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeader();
     initCartDrawer();
     initMenuDrawer();
-    initSidebar('.side-bar');
 });
 
 // Index logo navigation is handled by the sidebar module

@@ -7,75 +7,43 @@
   <title>Shop - Square One Coffee Roasters</title>
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/header.css">
-  <link rel="stylesheet" href="../css/shop.css">
+  <link rel="stylesheet" href="../css/checkout.css">
   <link rel="stylesheet" href="../css/menu-drawer.css">
-  <link rel="stylesheet" href="../css/non-homepage-cart-drawer.css">
   <link rel="stylesheet" href="../css/sidebar.css">
-  <script type="module" src="../js/shop.js"></script>
+  <script type="module" src="../js/checkout.js"></script>
 </head>
 
 <body data-page="shop">
   <div class="container">
     <!-- header will be injected here by js -->
     <main>
-      <div class="side-bar desktop-only">
-        <!-- Sidebar will be injected here by js -->
-      </div>
-      <section class="shop-section">
-        <h1>Shop</h1>
-        <div class="product-list">
-          <!-- Unique Espressos -->
-          <div class="product-card espresso-card">
-            <div class="product-info">
-              <h2>Unique<br>Espressos</h2>
-              <p>Espressos promotion</p>
-            </div>
-            <div class="view-more desktop-only">
-              <a href="/pages/espressos.html">View More</a>
-            </div>
-            <div class="product-img">
-              <img src="../assets/images/espresso-full.jpg" alt="Espresso img">
-            </div>
-          </div>
-          <!-- Espresso Blends -->
-          <div class="product-card blend-card">
-            <div class="product-info">
-              <h2>Espresso<br>Blends</h2>
-              <p>Blends promotion</p>
-            </div>
-            <div class="view-more desktop-only">
-              <a href="/pages/index.html">View More</a>
-            </div>
-            <div class="product-img">
-              <img src="../assets/images/blend-full.jpg" alt="Blend img">
-            </div>
-          </div>
-          <!-- Filter Roasts -->
-          <div class="product-card filter-card">
-            <div class="product-info">
-              <h2>Filter<br>Roasts</h2>
-              <p>Filter promotion</p>
-            </div>
-            <div class="view-more desktop-only">
-              <a href="/pages/index.html">View More</a>
-            </div>
-            <div class="product-img">
-              <img src="../assets/images/filter-full.jpg" alt="Filter img">
-            </div>
-          </div>
-          <!-- Accessories -->
-          <div class="product-card accessories-card">
-            <div class="product-info">
-              <h2>Accessories</h2>
-              <p>Want not only coffee?</p>
-            </div>
-            <div class="view-more desktop-only">
-              <a href="/pages/index.html">View More</a>
-            </div>
-            <div class="product-img">
-              <img src="../assets/images/accessories-full.jpeg" alt="Accessories img">
-            </div>
-          </div>
+      <section class="checkout-section">
+        <!-- Email -->
+        <div class="card email">
+          <h2>Email</h2>
+          <p>Enter your email address to receive your order confirmation and tracking details.</p>
+          <input type="email" placeholder="Email">
+          <button>Continue</button>
+        </div>
+        <!-- Delivery -->
+        <div class="card delivery active">
+          <h2>Delivery</h2>
+          <p>Select your delivery method.</p>
+          <input type="radio" name="delivery" id="delivery-1">
+          <label for="delivery-1">Standard Delivery</label>
+          <input type="radio" name="delivery" id="delivery-2">
+          <label for="delivery-2">Express Delivery</label>
+          <button>Continue</button>
+        </div>
+        <!-- Payment -->
+        <div class="card payment">
+          <h2>Payment</h2>
+          <p>Select your payment method.</p>
+          <input type="radio" name="payment" id="payment-1">
+          <label for="payment-1">Credit Card</label>
+          <input type="radio" name="payment" id="payment-2">
+          <label for="payment-2">Debit Card</label>
+          <button>Continue</button>
         </div>
       </section>
       <a class="back-btn mobile-only" href="./index.html">Back to Home</a>
