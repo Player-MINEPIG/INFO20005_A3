@@ -2,11 +2,15 @@ import { initCartDrawer } from './insertCartDrawer.js';
 import { initSidebar } from './insertSidebar.js';
 import { onAddToCartClick } from './cartOperation.js';
 import { initHeader } from './insertHeader.js';
+import { initMenuDrawer } from './insertMenuDrawer.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     initHeader();
     // Initialize cart drawer
     initCartDrawer();
+
+    // Initialize menu drawer
+    initMenuDrawer();
 
     // Initialize sidebar
     // Index logo navigation is handled by the sidebar module

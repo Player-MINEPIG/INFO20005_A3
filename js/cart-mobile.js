@@ -1,8 +1,10 @@
 import { initHeader, getLastPage } from './insertHeader.js';
 import { updateCartProducts } from './insertCartDrawer.js';
+import { initMenuDrawer } from './insertMenuDrawer.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     initHeader();
+    initMenuDrawer();
     updateCartProducts();
 });
 
