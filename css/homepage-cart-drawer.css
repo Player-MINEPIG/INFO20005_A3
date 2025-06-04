@@ -49,6 +49,7 @@
     border: none;
     cursor: pointer;
     margin-right: 2rem;
+    position: relative;
   }
 
   .cart-menu .cart-btn img {
@@ -56,6 +57,24 @@
     height: auto;
     object-fit: contain;
   }
+
+  .cart-menu .cart-badge {
+    position: absolute;
+    top: -1rem;
+    right: -1.5rem;
+    color: #000000;
+    border-radius: 50%;
+    border-color: #000000;
+    border-width: 3px;
+    border-style: solid;
+    padding: 0 0.35rem;
+    font-size: 1rem;
+    font-weight: 700;
+    min-width: 1.5rem;
+    text-align: center;
+    pointer-events: none;
+    z-index: 2;
+}
 
   .cart-menu ul {
     order: 2;
