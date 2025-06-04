@@ -49,13 +49,13 @@ export function onAddToCartClick(btn, addToCartAvailable) {
 }
 
 // Update cart badge
-export function updateCartBadge(cartBadge) {
+export function updateCartBadge(cartBadges) {
     const cart = getCart();
     if (cart.length < 0) {
-        cartBadge.textContent = '0';
+        cartBadges.forEach(badge => badge.textContent = '0');
     } else if (cart.length < 10) {
-        cartBadge.textContent = cart.length;
+        cartBadges.forEach(badge => badge.textContent = cart.length);
     } else {
-        cartBadge.textContent = '9+';
+        cartBadges.forEach(badge => badge.textContent = '9+');
     }
 }
