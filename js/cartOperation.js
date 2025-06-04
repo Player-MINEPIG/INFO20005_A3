@@ -8,7 +8,7 @@ export function getCart() {
 
 export function addToCart(product) {
     const cart = getCart();
-    const existingProduct = cart.find(item => item.id === product.id && item.size === product.size && item.pricePerUnit === product.pricePerUnit);
+    const existingProduct = cart.find(item => item.name === product.name && item.size === product.size && item.pricePerUnit === product.pricePerUnit);
     
     if (existingProduct) {
         existingProduct.quantity = (existingProduct.quantity || 1) + product.quantity;
@@ -21,7 +21,7 @@ export function addToCart(product) {
 
 export function removeFromCart(product) {
     const cart = getCart();
-    const existingProduct = cart.find(item => item.id === product.id && item.size === product.size && item.pricePerUnit === product.pricePerUnit);
+    const existingProduct = cart.find(item => item.name === product.name && item.size === product.size && item.pricePerUnit === product.pricePerUnit);
     if (existingProduct) {
         existingProduct.quantity = (existingProduct.quantity || 1) - product.quantity;
         if (existingProduct.quantity <= 0) {
@@ -40,7 +40,7 @@ export function onAddToCartClick(btn, addToCartAvailable) {
     if (!addToCartAvailable) return;
     const productInfo = btn.closest('.product-info');
     const product = {
-        id: productInfo.querySelector('.product-info h2').textContent,
+        name: productInfo.querySelector('.product-info h2').textContent,
         size: productInfo.querySelector('.size-option.selected').textContent,
         pricePerUnit: parseFloat(productInfo.querySelector('.size-option.selected').dataset.price) || 22.00,
         quantity: parseInt(productInfo.querySelector('.quantity .quantity-number').value),
