@@ -46,6 +46,7 @@ export function onAddToCartClick(btn, addToCartAvailable) {
         quantity: parseInt(productInfo.querySelector('.quantity .quantity-number').value),
     };
     addToCart(product);
+    updateCartBadge(document.querySelectorAll('.cart-badge'));
 }
 
 // Update cart badge
