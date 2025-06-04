@@ -16,12 +16,31 @@
         border: none;
         padding: 0;
         cursor: pointer;
+        position: relative;
     }
 
     .cart-btn img {
         width: 3rem;
         height: auto;
         object-fit: contain;
+    }
+
+    .cart-badge {
+        position: absolute;
+        top: -1rem;
+        right: -1.5rem;
+        color: #000000;
+        border-radius: 50%;
+        border-color: #000000;
+        border-width: 3px;
+        border-style: solid;
+        padding: 0 0.35rem;
+        font-size: 1rem;
+        font-weight: 700;
+        min-width: 1.5rem;
+        text-align: center;
+        pointer-events: none;
+        z-index: 2;
     }
 
     .menu-group {
