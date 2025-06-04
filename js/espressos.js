@@ -1,5 +1,6 @@
 import { initCartDrawer } from './insertCartDrawer.js';
 import { initSidebar } from './insertSidebar.js';
+import { onAddToCartClick } from './cartOperation.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -27,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-    
+
     const huliaCard = document.querySelector('.hulia-card');
     if (huliaCard) {
         huliaCard.addEventListener('click', () => {
@@ -62,6 +63,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         container.querySelector('.quantity-number').addEventListener('change', () => {
             onQuantityChange(container);
+        });
+    });
+
+    // Add add to cart handler
+    const addToCartBtns = document.querySelectorAll('.add-to-cart');
+    addToCartBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            onAddToCartClick(btn, addToCartAvailable);
         });
     });
 
@@ -197,6 +206,8 @@ document.addEventListener('DOMContentLoaded', () => {
             priceNumber.textContent = `A$${selectedSizeOption.dataset.price * parseInt(productInfo.querySelector('.quantity .quantity-number').value)}`;
         }
     }
+
+    
 
 });
 

@@ -1,5 +1,6 @@
 import { initCartDrawer } from './insertCartDrawer.js';
 import { initSidebar } from './insertSidebar.js';
+import { onAddToCartClick } from './cartOperation.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -43,6 +44,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         container.querySelector('.quantity-number').addEventListener('change', () => {
             onQuantityChange(container);
+        });
+    });
+
+    // Add add to cart handler
+    const addToCartBtns = document.querySelectorAll('.add-to-cart');
+    addToCartBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            onAddToCartClick(btn, addToCartAvailable);
         });
     });
 
