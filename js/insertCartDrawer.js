@@ -29,6 +29,11 @@ export function initCartDrawer() {
         }
         // Bind close events
         document.querySelector('.cart-overlay').addEventListener('click', hideCartDrawer);
+
+        // Bind checkout button event
+        document.querySelector('.checkout-btn').addEventListener('click', () => {
+            window.location.href = './checkout.html';
+        });
     });
 } 
 
@@ -87,7 +92,7 @@ export function updateCartProducts() {
         `;
     });
     
-    // Bind events
+    // Bind quantityevents
     document.querySelectorAll('.cart-product-quantity .minus-icon').forEach(icon => {
         icon.addEventListener('click', onCartMinusIconClick);
     });
