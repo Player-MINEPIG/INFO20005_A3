@@ -75,6 +75,13 @@
     overflow-y: auto;
   }
 
+  .cart-products p {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000;
+    margin: 0;
+  }
+
   .cart-products .cart-product {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;

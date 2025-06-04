@@ -60,6 +60,10 @@ function updateCartProducts() {
     cartProducts.innerHTML = '';
     const cart = getCart();
     let totalPrice = 0;
+    if (cart.length === 0) {
+        cartProducts.innerHTML = '<p>Your cart is empty.</p>';
+        return;
+    }
     cart.forEach(product => {
         const price = product.pricePerUnit * product.quantity;
         totalPrice += price;
