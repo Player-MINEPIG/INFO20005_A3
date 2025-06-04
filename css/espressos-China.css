@@ -299,7 +299,14 @@ main {
     content: "";
     flex: 1;
     border-bottom: 2px solid #000000;
-    margin: 0 0.75em;
+}
+
+.divider.mobile-only::before {
+    margin-right: 0.75em;
+}
+
+.divider.mobile-only::after {
+    margin-left: 0.75em;
 }
 
 .product-card .product-detail {
@@ -330,6 +337,7 @@ main {
 }
 
 .hulia-card {
+    display: none;
     z-index: 1;
 }
 
