@@ -1,9 +1,10 @@
 import { initCartDrawer } from './insertCartDrawer.js';
 import { initSidebar } from './insertSidebar.js';
 import { onAddToCartClick } from './cartOperation.js';
+import { initHeader } from './insertHeader.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-
+    initHeader();
     // Initialize cart drawer
     initCartDrawer();
 

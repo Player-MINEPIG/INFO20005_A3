@@ -1,7 +1,9 @@
 import { initCartDrawer } from './insertCartDrawer.js';
 import { initSidebar } from './insertSidebar.js';
+import { initHeader } from './insertHeader.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+    initHeader();
     initCartDrawer();
     initSidebar('.side-bar');
 });

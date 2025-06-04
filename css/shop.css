@@ -39,37 +39,6 @@ body {
     display: none;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: linear-gradient(to bottom, #E0E0D5, #B5B5A3);
-    padding: 1rem;
-    border-radius: 0 0 var(--radius) var(--radius);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.logo img {
-    height: 2.5rem;
-}
-
-nav {
-    display: flex;
-    gap: 0.75rem;
-}
-
-nav button {
-    background: rgba(255, 255, 255, 0);
-    border: none;
-    padding: 0.5rem;
-    cursor: pointer;
-}
-
-nav button img {
-    width: 1.25rem;
-    height: 1.25rem;
-}
-
 main {
     display: flex;
     flex-direction: column;
