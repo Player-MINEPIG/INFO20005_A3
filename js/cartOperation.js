@@ -47,3 +47,15 @@ export function onAddToCartClick(btn, addToCartAvailable) {
     };
     addToCart(product);
 }
+
+// Update cart badge
+export function updateCartBadge(cartBadge) {
+    const cart = getCart();
+    if (cart.length < 0) {
+        cartBadge.textContent = '0';
+    } else if (cart.length < 10) {
+        cartBadge.textContent = cart.length;
+    } else {
+        cartBadge.textContent = '9+';
+    }
+}

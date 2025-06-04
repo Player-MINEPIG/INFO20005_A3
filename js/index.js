@@ -1,8 +1,10 @@
 import { initCartDrawer } from './insertCartDrawer.js';
+import { updateCartBadge } from './cartOperation.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     initCartDrawer();
-
+    updateCartBadge(document.querySelector('.cart-badge'));
+    
     // Shop card navigation
     const shopCard = document.querySelector('.shop-card');
     if (shopCard) {
