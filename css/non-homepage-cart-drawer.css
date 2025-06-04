@@ -1,6 +1,7 @@
 @media (min-width: 1368px) {
   /* Cart Overlay */
   .cart-overlay {
+    display: flex;
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.4);
