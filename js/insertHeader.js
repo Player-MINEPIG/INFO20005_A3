@@ -1,4 +1,5 @@
 import { updateCartBadge } from './cartOperation.js';
+import { switchMenuDrawer } from './insertMenuDrawer.js';
 
 export function initHeader() {
     async function fetchHeaderHTML() {
@@ -24,6 +25,12 @@ export function initHeader() {
         cartBtn.addEventListener('click', () => {
             setLastPage();
             window.location.href = './cart-mobile.html';
+        });
+
+        // Bind menu button click event
+        const menuBtn = document.querySelector('header .menu-btn');
+        menuBtn.addEventListener('click', () => {
+            switchMenuDrawer(document.querySelector('header').offsetHeight + 'px');
         });
 
         updateCartBadge();

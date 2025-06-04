@@ -1,11 +1,13 @@
 import { initCartDrawer } from './insertCartDrawer.js';
 import { updateCartBadge } from './cartOperation.js';
 import { initHeader } from './insertHeader.js';
+import { initMenuDrawer } from './insertMenuDrawer.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     initHeader();
     initCartDrawer();
-    updateCartBadge(document.querySelectorAll('.cart-badge'));
+    initMenuDrawer();
+    updateCartBadge();
 
     // Shop card navigation
     const shopCard = document.querySelector('.shop-card');
