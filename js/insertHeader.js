@@ -16,6 +16,6 @@ export function initHeader() {
                 window.location.href = './index.html';
             });
         }
-        updateCartBadge(document.querySelectorAll('.cart-badge'));
+        updateCartBadge();
     });
 }

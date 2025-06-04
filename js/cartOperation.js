@@ -46,11 +46,12 @@ export function onAddToCartClick(btn, addToCartAvailable) {
         quantity: parseInt(productInfo.querySelector('.quantity .quantity-number').value),
     };
     addToCart(product);
-    updateCartBadge(document.querySelectorAll('.cart-badge'));
+    updateCartBadge();
 }
 
 // Update cart badge
-export function updateCartBadge(cartBadges) {
+export function updateCartBadge() {
+    const cartBadges = document.querySelectorAll('.cart-badge');
     const cart = getCart();
     if (cart.length < 0) {
         cartBadges.forEach(badge => badge.textContent = '0');

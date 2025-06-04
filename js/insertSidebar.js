@@ -1,4 +1,5 @@
 import { showCartDrawer, hideCartDrawer } from './insertCartDrawer.js';
+import { updateCartBadge } from './cartOperation.js';
 
 export function initSidebar(positionSelector) {
     async function fetchSidebarHTML() {
@@ -45,6 +46,8 @@ export function initSidebar(positionSelector) {
                 window.location.href = './index.html';
             });
         }
+
+        updateCartBadge();
     });
 
     // synchronize the fold menu state with the cart drawer

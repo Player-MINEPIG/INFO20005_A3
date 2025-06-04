@@ -33,7 +33,6 @@ export function initCartDrawer() {
 } 
 
 export function showCartDrawer() {
-    console.log('showCartDrawer');
     document.querySelector('.cart-drawer').classList.add('active');
     document.querySelector('.cart-overlay').classList.add('active');
     document.dispatchEvent(new Event('cartDrawerShown'));
@@ -60,10 +59,7 @@ function updateCartProducts() {
     const cartProducts = document.querySelector('.cart-products');
     cartProducts.innerHTML = '';
     const cart = getCart();
-    console.log(cart);
     cart.forEach(product => {
-        console.log(product.name);
-        console.log(productNameImgMap[product.name]);
         cartProducts.innerHTML += `
             <div class="cart-product" style="background: ${productNameBackgroundMap[product.name]}">
                 <h3>${product.name}</h3>
