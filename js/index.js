@@ -1,7 +1,9 @@
 import { initCartDrawer } from './insertCartDrawer.js';
 import { updateCartBadge } from './cartOperation.js';
+import { initHeader } from './insertHeader.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+    initHeader();
     initCartDrawer();
     updateCartBadge(document.querySelectorAll('.cart-badge'));
 
