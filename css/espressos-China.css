@@ -36,10 +36,6 @@ body {
     background: linear-gradient(180deg, #E1BB67 0%, #9E844B 150%);
 }
 
-.desktop-only {
-    display: none;
-}
-
 /* Header */
 header {
     display: flex;
@@ -338,8 +334,7 @@ main {
 }
 
 .china-card {
-    display: none;
-    margin-bottom: 0;
+    z-index: 2;
 }
 
 /* Back button */
@@ -353,6 +348,10 @@ main {
     color: #000;
     font-size: 1rem;
     text-align: center;
+}
+
+.desktop-only {
+    display: none;
 }
 
 /* Desktop styles */
