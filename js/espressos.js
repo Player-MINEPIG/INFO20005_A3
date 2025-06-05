@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (huliaCard) {
         huliaCard.addEventListener('click', () => {
             if (window.innerWidth < 1368) {
-                window.location.href = './espressos-Colombia.html';
+                window.location.href = './espressos-Hulia.html';
             }
         });
     }
