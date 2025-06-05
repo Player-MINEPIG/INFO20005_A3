@@ -613,13 +613,20 @@ main {
         margin-bottom: 0;
     }
 
+    .custom-delivery-address,
     .custom-billing-address {
         display: none;
     }
 
+    .custom-delivery-address.active,
     .custom-billing-address.active {
         display: block;
         margin-top: var(--space-2);
+    }
+
+    .custom-delivery-address.active > p,
+    .custom-billing-address.active > p {
+        margin-bottom: var(--space-2);
     }
     
     .email {

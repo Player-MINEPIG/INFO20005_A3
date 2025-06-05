@@ -35,7 +35,7 @@
             <p>Select your delivery method.</p>
             <div class="delivery-option">
               <label>
-                <input type="radio" name="delivery" value="pickup" checked>
+                <input type="radio" name="delivery" value="pickup">
                 <span class="custom-radio"></span>
                 <span class="option-label">Pick up from Square One Rialto</span>
                 <span class="option-price">FREE</span>
@@ -50,36 +50,48 @@
                 <span class="option-price">A$10.00</span>
               </label>
             </div>
-          </div>
-          <div class="card-container">
-            <h3>ShippingAddress</h3>
-            <p>Enter your address to receive your order.</p>
-            <div class="address-name">
-              <div class="first-name">
-                <p>First Name</p>
-                <input type="text" placeholder="First Name">
+            <div class="custom-delivery-address">
+              <h3>ShippingAddress</h3>
+              <p>Enter your address to receive your order.</p>
+              <div class="address-name">
+                <div class="first-name">
+                  <p>First Name</p>
+                  <input type="text" placeholder="First Name">
+                </div>
+                <div class="last-name">
+                  <p>Last Name</p>
+                  <input type="text" placeholder="Last Name">
+                </div>
               </div>
-              <div class="last-name">
-                <p>Last Name</p>
-                <input type="text" placeholder="Last Name">
+              <div class="address">
+                <p>Address Line</p>
+                <input type="text" placeholder="Address Line 1">
+                <input type="text" placeholder="Address Line 2">
+                <div class="suburb-state">
+                  <div class="suburb">
+                    <p>Suburb</p>
+                    <input type="text" placeholder="Suburb">                  
+                  </div>
+                  <div class="state">
+                    <p>State</p>
+                    <input type="text" placeholder="State">
+                  </div>
+                </div>
+                <div class="postcode-country">
+                  <div class="postcode">
+                    <p>Postcode</p>
+                    <input type="text" placeholder="Postcode">
+                  </div>
+                  <div class="country">
+                    <p>Country</p>
+                    <input type="text" placeholder="Country">
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="address">
-              <p>Address Line</p>
-              <input type="text" placeholder="Address Line 1">
-              <input type="text" placeholder="Address Line 2">
-              <div class="suburb-state">
-                <input type="text" placeholder="Suburb">
-                <input type="text" placeholder="State">
+              <div class="phone-number">
+                <p>Phone Number</p>
+                <input type="text" placeholder="Phone Number">
               </div>
-              <div class="postcode-country">
-                <input type="text" placeholder="Postcode">
-                <input type="text" placeholder="Country">
-              </div>
-            </div>
-            <div class="phone-number">
-              <p>Phone Number</p>
-              <input type="text" placeholder="Phone Number">
             </div>
           </div>
           <button>Continue</button>
@@ -148,12 +160,24 @@
                 <input type="text" placeholder="Address Line 1">
                 <input type="text" placeholder="Address Line 2">
                 <div class="suburb-state">
-                  <input type="text" placeholder="Suburb">
-                  <input type="text" placeholder="State">
+                  <div class="suburb">
+                    <p>Suburb</p>
+                    <input type="text" placeholder="Suburb">
+                  </div>
+                  <div class="state">
+                    <p>State</p>
+                    <input type="text" placeholder="State">
+                  </div>
                 </div>
                 <div class="postcode-country">
-                  <input type="text" placeholder="Postcode">
-                  <input type="text" placeholder="Country">
+                  <div class="postcode">
+                    <p>Postcode</p>
+                    <input type="text" placeholder="Postcode">
+                  </div>
+                  <div class="country">
+                    <p>Country</p>
+                    <input type="text" placeholder="Country">
+                  </div>
                 </div>
               </div>
               <div class="phone-number">

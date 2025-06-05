@@ -59,7 +59,64 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Delivery validation
+    const deliveryContinueBtn = deliveryCard.querySelector('button');
+    const deliveryInputs = deliveryCard.querySelectorAll('input[type="text"]');
+    const deliveryRadios = deliveryCard.querySelectorAll('input[type="radio"]');
+    let checkedRadio = null;
+    const customDeliveryAddress = deliveryCard.querySelector('.custom-delivery-address');
 
+    function checkDeliveryInputs() {
+        const allFilled = Array.from(deliveryInputs).every(input => input.value.trim() !== '');
+
+        checkedRadio = null;
+        deliveryRadios.forEach(radio => {
+            if (radio.checked) {
+                checkedRadio = radio;
+            }
+        });
+
+        if (checkedRadio) {
+            if (checkedRadio.value === 'pickup') {
+                deliveryContinueBtn.classList.add('active');
+                paymentCard.classList.add('available');
+            } else if (checkedRadio.value === 'auspost') {
+                if (allFilled) {
+                    deliveryContinueBtn.classList.add('active');
+                    paymentCard.classList.add('available');
+                } else {
+                    deliveryContinueBtn.classList.remove('active');
+                    paymentCard.classList.remove('available');
+                }
+            }
+        }
+    }
+
+    function onRadioChange() {
+        checkDeliveryInputs();
+        if (checkedRadio.value === 'auspost') {
+            customDeliveryAddress.classList.add('active');
+        } else {
+            customDeliveryAddress.classList.remove('active');
+        }
+    }
+
+    deliveryInputs.forEach(input => {
+        input.addEventListener('input', checkDeliveryInputs);
+    });
+
+    deliveryRadios.forEach(radio => {
+        radio.addEventListener('change', onRadioChange);
+    });
+
+    deliveryContinueBtn.addEventListener('click', (e) => {
+        console.log('deliveryContinueBtn clicked');
+        e.stopPropagation();
+        if (!deliveryContinueBtn.classList.contains('active')) {
+            alert('Please fill in all required fields');
+            return;
+        }
+        activeCard(paymentCard);
+    });
 
     // Active card
     function activeCard(targetCard) {
