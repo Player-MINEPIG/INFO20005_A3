@@ -181,8 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     reviewOrderButtonState();
                 }
             }
-        }
-        
+        }  
     }
 
     function onBillingRadioChange() {
@@ -235,6 +234,9 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = './review-order.html';
     });
 
+    // Load data
+    loadData();
+
     function reviewOrderButtonState() {
         if (emailValid && deliveryValid && paymentValid) {
             reviewOrderBtn.classList.add('active');
@@ -277,6 +279,79 @@ document.addEventListener('DOMContentLoaded', () => {
             country: billingInputs[7].value,
             phoneNumber: billingInputs[8].value,
         }));
+    }
+
+    function loadData() {
+        // load email and options
+        const email = localStorage.getItem('email');
+        if (email) {
+            emailInput.value = email;
+            emailValid = true;
+            deliveryCard.classList.add('available');
+            emailContinueBtn.classList.add('active');
+            reviewOrderButtonState();
+        }
+
+        // load delivery
+        const delivery = localStorage.getItem('delivery');
+        if (delivery) {
+            const deliveryRadio = document.querySelector('.delivery-option input[value="' + delivery + '"]');
+            deliveryRadio.checked = true;
+            if (delivery === 'auspost') {
+                customDeliveryAddress.classList.add('active');
+                const deliveryAddress = JSON.parse(localStorage.getItem('deliveryAddress'));
+                if (deliveryAddress) {
+                    deliveryInputs[0].value = deliveryAddress.firstName;
+                    deliveryInputs[1].value = deliveryAddress.lastName;
+                    deliveryInputs[2].value = deliveryAddress.addressLine1;
+                    deliveryInputs[3].value = deliveryAddress.addressLine2;
+                    deliveryInputs[4].value = deliveryAddress.suburb;
+                    deliveryInputs[5].value = deliveryAddress.state;
+                    deliveryInputs[6].value = deliveryAddress.postcode;
+                    deliveryInputs[7].value = deliveryAddress.country;
+                    deliveryInputs[8].value = deliveryAddress.phoneNumber;
+                }
+            }
+            else {
+                deliveryValid = true;
+                customDeliveryAddress.classList.remove('active');
+            }
+        }
+
+        checkDeliveryInputs();
+
+        // load payment
+        const payment = localStorage.getItem('payment');
+        const billing = localStorage.getItem('billing');
+        if (payment) {
+            const paymentRadio = document.querySelector('.payment-option input[value="' + payment + '"]');
+            paymentRadio.checked = true;
+        }
+
+        if (billing) {
+            const billingRadio = document.querySelector('.billing-option input[value="' + billing + '"]');
+            billingRadio.checked = true;
+            if (billing === 'different-billing') {
+                customBillingAddress.classList.add('active');
+                const billingAddress = JSON.parse(localStorage.getItem('billingAddress'));
+                if (billingAddress) {
+                    billingInputs[0].value = billingAddress.firstName;
+                    billingInputs[1].value = billingAddress.lastName;
+                    billingInputs[2].value = billingAddress.addressLine1;
+                    billingInputs[3].value = billingAddress.addressLine2;
+                    billingInputs[4].value = billingAddress.suburb;
+                    billingInputs[5].value = billingAddress.state;
+                    billingInputs[6].value = billingAddress.postcode;
+                    billingInputs[7].value = billingAddress.country;
+                    billingInputs[8].value = billingAddress.phoneNumber;
+                }
+            }
+            else {
+                customBillingAddress.classList.remove('active');
+            }
+        }
+
+        checkPaymentInputs();
     }
 });
 
