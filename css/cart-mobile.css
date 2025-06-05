@@ -235,13 +235,17 @@ input[type="number"]::-webkit-outer-spin-button {
 .checkout-btn {
   width: 100%;
   background: linear-gradient(180deg, #D3BD9A 0%, #A68E67 100%);
-  color: #000;
+  color: rgba(0, 0, 0, 0.2);
   font-size: 2rem;
   font-weight: 700;
   border: none;
   border-radius: 5px;
   padding: 0.75rem 0;
   cursor: pointer;
+}
+
+.checkout-btn.active {
+  color: #000;
 }
 
 .back-btn {
