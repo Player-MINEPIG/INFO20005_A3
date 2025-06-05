@@ -204,7 +204,8 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Please fill in all required fields');
             return;
         }
-        window.location.href = './review-order.html';
+        // window.location.href = './review-checkout.html';
+        console.log('paymentContinueBtn clicked');
     });
 
     // Active card
@@ -222,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Please fill in all required fields');
             return;
         }
-        window.location.href = './review-order.html';
+        window.location.href = './review-checkout.html';
     });
 
     function reviewOrderButtonState() {
