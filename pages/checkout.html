@@ -26,9 +26,9 @@
           <button>Continue</button>
         </div>
         <!-- Delivery -->
-        <div class="card delivery active">
+        <div class="card delivery">
           <h2>Delivery</h2>
-          <div class="delivery-container">
+          <div class="card-container">
             <h3>Delivery Options</h3>
             <p>Select your delivery method.</p>
             <div class="delivery-option">
@@ -49,7 +49,7 @@
               </label>
             </div>
           </div>
-          <div class="delivery-container">
+          <div class="card-container">
             <h3>ShippingAddress</h3>
             <p>Enter your address to receive your order.</p>
             <div class="address-name">
@@ -83,14 +83,84 @@
           <button>Continue</button>
         </div>
         <!-- Payment -->
-        <div class="card payment">
+        <div class="card payment active">
           <h2>Payment</h2>
-          <p>Select your payment method.</p>
-          <input type="radio" name="payment" id="payment-1">
-          <label for="payment-1">Credit Card</label>
-          <input type="radio" name="payment" id="payment-2">
-          <label for="payment-2">Debit Card</label>
-          <button>Continue</button>
+          <div class="card-container">
+            <h3>Payment Options</h3>
+            <p>Select your payment method.</p>
+            <div class="payment-option">
+              <label>
+                <input type="radio" name="payment" id="payment-1">
+                <span class="custom-radio"></span>
+                <span class="option-label">Credit Card</span>
+              </label>
+            </div>
+            <div class="payment-divider"></div>
+            <div class="payment-option">
+              <label>
+                <input type="radio" name="payment" id="payment-1">
+                <span class="custom-radio"></span>
+                <span class="option-label">PayPal</span>
+              </label>
+            </div>
+            <div class="payment-divider"></div>
+            <div class="payment-option">
+              <label>
+                <input type="radio" name="payment" id="payment-1">
+                <span class="custom-radio"></span>
+                <span class="option-label">Apple Pay</span>
+              </label>
+            </div>
+          </div>
+          <div class="card-container">
+            <h3>Billing Address</h3>
+            <p>Select your billing address.</p>
+            <div class="billing-option">
+              <label>
+                <input type="radio" name="billing" id="billing-1">
+                <span class="custom-radio"></span>
+                <span class="option-label">Same as shipping address</span>
+              </label>
+            </div>
+            <div class="billing-divider"></div>
+            <div class="billing-option">
+              <label>
+                <input type="radio" name="billing" id="billing-2">
+                <span class="custom-radio"></span>
+                <span class="option-label">Different billing address</span>
+              </label>
+            </div>
+            <div class="custom-billing-address">
+              <div class="address-name">
+                <div class="first-name">
+                  <p>First Name</p>
+                  <input type="text" placeholder="First Name">
+                </div>
+                <div class="last-name">
+                  <p>Last Name</p>
+                  <input type="text" placeholder="Last Name">
+                </div>
+              </div>
+              <div class="address">
+                <p>Address Line</p>
+                <input type="text" placeholder="Address Line 1">
+                <input type="text" placeholder="Address Line 2">
+                <div class="suburb-state">
+                  <input type="text" placeholder="Suburb">
+                  <input type="text" placeholder="State">
+                </div>
+                <div class="postcode-country">
+                  <input type="text" placeholder="Postcode">
+                  <input type="text" placeholder="Country">
+                </div>
+              </div>
+              <div class="phone-number">
+                <p>Phone Number</p>
+                <input type="text" placeholder="Phone Number">
+              </div>
+            </div>
+          </div>
+          <button>Review Order</button>
         </div>
       </section>
       <a class="back-btn mobile-only" href="./index.html">Back to Home</a>

@@ -373,7 +373,7 @@ main {
     .checkout-btn {
         width: 100%;
         background: linear-gradient(180deg, #D3BD9A 0%, #A68E67 100%);
-        color: #000;
+        color: rgba(0, 0, 0, 0.2);
         font-size: 2rem;
         font-weight: 700;
         border: none;
@@ -479,7 +479,7 @@ main {
         background: rgba(222,222,222,0.8);
     }
 
-    .delivery-container {
+    .card-container {
         background: rgba(222,222,222,0.8);
         border: 1px solid #000;
         border-radius: 5px;
@@ -487,17 +487,16 @@ main {
         width: 100%;
         max-width: 400px;
         box-sizing: border-box;
-        display: flex;
         flex-direction: column;
     }
     
-    .delivery-container h3 {
+    .card-container h3 {
         font-weight: 400;
         font-size: 1.5rem;
         color: #000;
     }
 
-    .delivery-container > p {
+    .card-container > p {
         font-weight: 400;
         font-size: 1.25rem;
         color: rgba(0, 0, 0, 0.6);
@@ -505,12 +504,14 @@ main {
         margin-bottom: var(--space-2);
     }
     
-    .delivery-option {
+    .delivery-option,
+    .payment-option,
+    .billing-option {
         display: flex;
         align-items: center;
     }
     
-    .delivery-option label {
+    label {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -518,7 +519,7 @@ main {
         cursor: pointer;
     }
     
-    .delivery-option input[type="radio"] {
+    input[type="radio"] {
         display: none;
     }
     
@@ -532,7 +533,7 @@ main {
         background: #fff;
     }
     
-    .delivery-option input[type="radio"]:checked + .custom-radio::after {
+    input[type="radio"]:checked + .custom-radio::after {
         content: "";
         display: block;
         width: 0.5rem;
@@ -557,7 +558,9 @@ main {
         color: #000;
     }
     
-    .delivery-divider {
+    .delivery-divider,
+    .payment-divider,
+    .billing-divider {
         border-top: 1px solid #000000;
         margin: var(--space-2) 0;
     }
@@ -596,7 +599,7 @@ main {
         width: 100%;
     }
 
-    .delivery-container input[type="text"] {
+    .card-container input[type="text"] {
         font-size: 1rem;
         text-align: center;
         padding: var(--space-1);
@@ -609,6 +612,15 @@ main {
 
     .phone-number input[type="text"] {
         margin-bottom: 0;
+    }
+
+    .custom-billing-address {
+        display: none;
+    }
+
+    .custom-billing-address.active {
+        display: block;
+        margin-top: var(--space-2);
     }
     
     .email {
