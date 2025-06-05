@@ -73,7 +73,6 @@ main h1 {
     align-items: center;
     justify-content: center;
     gap: var(--space-2);
-    height: 100%;
     width: auto;          
     border-radius: var(--radius);
     padding: var(--space-2);
@@ -85,7 +84,7 @@ main h1 {
 
 .card h2 {
     display: flex;
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: 700;
     color: #000;
 }
@@ -97,6 +96,7 @@ main h1 {
     border: 2px solid #000;
     background: rgba(222,222,222,0.8);
     text-align: center;
+    align-self: center;
 }
 
 .card-container {
@@ -107,6 +107,7 @@ main h1 {
     width: 100%;
     max-width: 400px;
     box-sizing: border-box;
+    display: flex;
     flex-direction: column;
 }
 
@@ -260,6 +261,22 @@ input[type="radio"]:checked + .custom-radio::after {
 
 .payment {
     background: linear-gradient(270deg, #C380AC 0%, #5D3F53 200%);
+}
+
+.review-order-btn {
+    width: 80%;
+    background: linear-gradient(180deg, #D3BD9A 0%, #A68E67 100%);
+    color: rgba(0, 0, 0, 0.2);
+    font-size: 2rem;
+    font-weight: 700;
+    border: none;
+    border-radius: var(--radius);
+    padding: 0.75rem 0;
+    margin-bottom: var(--space-2);
+}
+
+.review-order-btn.active {
+    color: #000;
 }
 
 .back-btn {
