@@ -478,6 +478,83 @@ main {
         margin-bottom: auto;
         background: #ffffffaa;
     }
+
+    .delivery-options-card {
+        background: rgba(222,222,222,0.8);
+        border: 1px solid #000;
+        border-radius: 5px;
+        padding: 1.5rem 1rem;
+        margin-bottom: 1.5rem;
+        width: 100%;
+        max-width: 400px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+    
+    .delivery-options-card h3 {
+        font-weight: 400;
+        font-size: 1.5rem;
+        color: #000;
+        margin-bottom: var(--space-2);
+    }
+    
+    .delivery-option {
+        display: flex;
+        align-items: center;
+    }
+    
+    .delivery-option label {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        cursor: pointer;
+    }
+    
+    .delivery-option input[type="radio"] {
+        display: none;
+    }
+    
+    .custom-radio {
+        width: 1rem;
+        height: 1rem;
+        border: 2px solid #575757;
+        border-radius: 50%;
+        margin-right: 1rem;
+        position: relative;
+        background: #fff;
+    }
+    
+    .delivery-option input[type="radio"]:checked + .custom-radio::after {
+        content: "";
+        display: block;
+        width: 0.5rem;
+        height: 0.5rem;
+        background: #575757;
+        border-radius: 50%;
+        position: absolute;
+        top: 0.125rem;
+        left: 0.125rem;
+    }
+    
+    .option-label {
+        flex: 1;
+        font-size: 1.25rem;
+        color: #000;
+    }
+    
+    .option-price {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-left: 1rem;
+        color: #000;
+    }
+    
+    .delivery-divider {
+        border-top: 1px solid #000000;
+    }
     
     .email {
         background: linear-gradient(270deg, #BE5036 0%, #593026 200%);

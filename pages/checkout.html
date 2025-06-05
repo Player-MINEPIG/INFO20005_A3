@@ -28,11 +28,26 @@
         <!-- Delivery -->
         <div class="card delivery active">
           <h2>Delivery</h2>
-          <p>Select your delivery method.</p>
-          <input type="radio" name="delivery" id="delivery-1">
-          <label for="delivery-1">Standard Delivery</label>
-          <input type="radio" name="delivery" id="delivery-2">
-          <label for="delivery-2">Express Delivery</label>
+          <div class="delivery-options-card">
+            <h3>Delivery Options</h3>
+            <div class="delivery-option">
+              <label>
+                <input type="radio" name="delivery" value="pickup" checked>
+                <span class="custom-radio"></span>
+                <span class="option-label">Pick up from Square One Rialto</span>
+                <span class="option-price">FREE</span>
+              </label>
+            </div>
+            <div class="delivery-divider"></div>
+            <div class="delivery-option">
+              <label>
+                <input type="radio" name="delivery" value="auspost">
+                <span class="custom-radio"></span>
+                <span class="option-label">AUSPOST</span>
+                <span class="option-price">A$10.00</span>
+              </label>
+            </div>
+          </div>
           <button>Continue</button>
         </div>
         <!-- Payment -->
