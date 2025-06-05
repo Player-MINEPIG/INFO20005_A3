@@ -8,6 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
     initCartDrawer();
     initMenuDrawer();
 
+    // Validations
+    let emailValid = false;
+    let deliveryValid = false;
+    let paymentValid = false;
+
     // Email active
     const emailCard = document.querySelector('.email');
     emailCard.addEventListener('click', () => {
@@ -44,9 +49,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isValidEmail(emailInput.value.trim())) {
             emailContinueBtn.classList.add('active');
             deliveryCard.classList.add('available');
+            emailValid = true;
+            reviewOrderButtonState();
         } else {
             emailContinueBtn.classList.remove('active');
             deliveryCard.classList.remove('available');
+            emailValid = false;
+            reviewOrderButtonState();
         }
     });
 
@@ -82,15 +91,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 updateCartProducts();
                 deliveryContinueBtn.classList.add('active');
                 paymentCard.classList.add('available');
+                deliveryValid = true;
+                reviewOrderButtonState();
             } else if (checkedRadio.value === 'auspost') {
                 localStorage.setItem('deliveryFee', 10.00);
                 updateCartProducts();
                 if (allFilled) {
                     deliveryContinueBtn.classList.add('active');
                     paymentCard.classList.add('available');
+                    deliveryValid = true;
+                    reviewOrderButtonState();
                 } else {
                     deliveryContinueBtn.classList.remove('active');
                     paymentCard.classList.remove('available');
+                    deliveryValid = false;
+                    reviewOrderButtonState();
                 }
             }
         }
@@ -145,11 +160,17 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isPaymentRadioChecked && checkedBillingRadio) {
             if (checkedBillingRadio.value === 'same-as-shipping') {
                 paymentContinueBtn.classList.add('active');
+                paymentValid = true;
+                reviewOrderButtonState();
             } else if (checkedBillingRadio.value === 'different-billing') {
                 if (allFilled) {
                     paymentContinueBtn.classList.add('active');
+                    paymentValid = true;
+                    reviewOrderButtonState();
                 } else {
                     paymentContinueBtn.classList.remove('active');
+                    paymentValid = false;
+                    reviewOrderButtonState();
                 }
             }
         }
@@ -193,6 +214,26 @@ document.addEventListener('DOMContentLoaded', () => {
             card.classList.remove('active');
         });
         targetCard.classList.add('active');
+    }
+
+    // Review order button
+    const reviewOrderBtn = document.querySelector('.review-order-btn');
+    reviewOrderBtn.addEventListener('click', () => {
+        if (!reviewOrderButtonState()) {
+            alert('Please fill in all required fields');
+            return;
+        }
+        window.location.href = './review-checkout.html';
+    });
+
+    function reviewOrderButtonState() {
+        if (emailValid && deliveryValid && paymentValid) {
+            reviewOrderBtn.classList.add('active');
+            return true;
+        } else {
+            reviewOrderBtn.classList.remove('active');
+            return false;
+        }
     }
 });
 
