@@ -10,24 +10,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // Email active
     const emailCard = document.querySelector('.email');
     emailCard.addEventListener('click', () => {
-        if (emailCard.classList.contains('available')) {
-            activeCard('.email');
+        if (emailCard.classList.contains('available') && !emailCard.classList.contains('active')) {
+            activeCard(emailCard);
         }
     });
 
     // Delivery active
     const deliveryCard = document.querySelector('.delivery');
     deliveryCard.addEventListener('click', () => {
-        if (deliveryCard.classList.contains('available')) {
-            activeCard('.delivery');
+        if (deliveryCard.classList.contains('available') && !deliveryCard.classList.contains('active')) {
+            activeCard(deliveryCard);
         }
     });
 
     // Payment active
     const paymentCard = document.querySelector('.payment');
     paymentCard.addEventListener('click', () => {
-        if (paymentCard.classList.contains('available')) {
-            activeCard('.payment');
+        if (paymentCard.classList.contains('available') && !paymentCard.classList.contains('active')) {
+            activeCard(paymentCard);
         }
     });
 
@@ -49,23 +49,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    emailContinueBtn.addEventListener('click', () => {
+    emailContinueBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
         if (!isValidEmail(emailInput.value.trim())) {
             alert('Please enter a valid email address');
             return;
         }
-        activeCard('.delivery');
+        activeCard(deliveryCard);
     });
 
     // Delivery validation
 
 
     // Active card
-    function activeCard(card) {
+    function activeCard(targetCard) {
+        console.log(targetCard);
         document.querySelectorAll('.card').forEach(card => {
             card.classList.remove('active');
         });
-        document.querySelector(card).classList.add('active');
+        targetCard.classList.add('active');
     }
 });
 
