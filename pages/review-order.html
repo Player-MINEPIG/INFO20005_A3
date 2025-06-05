@@ -7,10 +7,10 @@
   <title>Shop - Square One Coffee Roasters</title>
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/header.css">
-  <link rel="stylesheet" href="../css/checkout.css">
+  <link rel="stylesheet" href="../css/review-order.css">
   <link rel="stylesheet" href="../css/menu-drawer.css">
   <link rel="stylesheet" href="../css/sidebar.css">
-  <script type="module" src="../js/checkout.js"></script>
+  <script type="module" src="../js/review-order.js"></script>
 </head>
 
 <body data-page="review-order">
@@ -23,17 +23,14 @@
         <div class="card email available active">
           <h2>Email</h2>
           <div class="card-container">
-            <p>Enter your email address to receive your order confirmation and tracking details.</p>
-            <input type="email" placeholder="Email">
+            <input type="email" placeholder="Email" value="test@test.com">
           </div>
-          <button class="desktop-only">Continue</button>
         </div>
         <!-- Delivery -->
         <div class="card delivery">
           <h2>Delivery</h2>
           <div class="card-container">
             <h3>Delivery Options</h3>
-            <p>Select your delivery method.</p>
             <div class="delivery-option">
               <label>
                 <input type="radio" name="delivery" value="pickup">
@@ -42,7 +39,6 @@
                 <span class="option-price">FREE</span>
               </label>
             </div>
-            <div class="delivery-divider"></div>
             <div class="delivery-option">
               <label>
                 <input type="radio" name="delivery" value="auspost">
@@ -53,7 +49,6 @@
             </div>
             <div class="custom-delivery-address">
               <h3>ShippingAddress</h3>
-              <p>Enter your address to receive your order.</p>
               <div class="address-name">
                 <div class="first-name">
                   <p>First Name</p>
@@ -102,7 +97,6 @@
           <h2>Payment</h2>
           <div class="card-container">
             <h3>Payment Options</h3>
-            <p>Select your payment method.</p>
             <div class="payment-option">
               <label>
                 <input type="radio" name="payment" value="credit-card">
@@ -110,7 +104,6 @@
                 <span class="option-label">Credit Card</span>
               </label>
             </div>
-            <div class="payment-divider"></div>
             <div class="payment-option">
               <label>
                 <input type="radio" name="payment" value="paypal">
@@ -118,7 +111,6 @@
                 <span class="option-label">PayPal</span>
               </label>
             </div>
-            <div class="payment-divider"></div>
             <div class="payment-option">
               <label>
                 <input type="radio" name="payment" value="apple-pay">
@@ -129,7 +121,6 @@
           </div>
           <div class="card-container billing">
             <h3>Billing Address</h3>
-            <p>Select your billing address.</p>
             <div class="billing-option">
               <label>
                 <input type="radio" name="billing" value="same-as-shipping">
@@ -137,7 +128,6 @@
                 <span class="option-label">Same as shipping address</span>
               </label>
             </div>
-            <div class="billing-divider"></div>
             <div class="billing-option">
               <label>
                 <input type="radio" name="billing" value="different-billing">
@@ -189,9 +179,9 @@
           </div>
           <button class="desktop-only">Review Order</button>
         </div>
-        <button class="review-order-btn mobile-only">Review Order</button>
+        <button class="pay-btn mobile-only">Pay</button>
       </section>
-      <a class="back-btn mobile-only" href="./index.html">Back to Home</a>
+      <a class="back-btn mobile-only" href="./checkout.html">Back to Checkout</a>
     </main>
   </div>
 </body>

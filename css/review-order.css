@@ -115,6 +115,7 @@ main h1 {
     font-weight: 400;
     font-size: 1.5rem;
     color: #000;
+    margin-bottom: var(--space-2);
 }
 
 .card-container > p {
@@ -263,20 +264,16 @@ input[type="radio"]:checked + .custom-radio::after {
     background: linear-gradient(270deg, #C380AC 0%, #5D3F53 200%);
 }
 
-.review-order-btn {
+.pay-btn {
     width: 80%;
     background: linear-gradient(180deg, #D3BD9A 0%, #A68E67 100%);
-    color: rgba(0, 0, 0, 0.2);
+    color: #000;
     font-size: 2rem;
     font-weight: 700;
     border: none;
     border-radius: var(--radius);
     padding: 0.75rem 0;
     margin-bottom: var(--space-2);
-}
-
-.review-order-btn.active {
-    color: #000;
 }
 
 .back-btn {
@@ -639,6 +636,7 @@ input[type="radio"]:checked + .custom-radio::after {
         font-weight: 400;
         font-size: 1.5rem;
         color: #000;
+        margin-bottom: 0;
     }
 
     .card-container > p {
