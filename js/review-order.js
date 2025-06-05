@@ -1,7 +1,7 @@
 import { initCartDrawer } from './insertCartDrawer.js';
 import { initHeader } from './insertHeader.js';
 import { initMenuDrawer } from './insertMenuDrawer.js';
-import { updateCartProducts } from './insertCartDrawer.js';
+import { getCart } from './cartOperation.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     initHeader();
@@ -98,7 +98,69 @@ document.addEventListener('DOMContentLoaded', () => {
         billingAddress.querySelector('.country input').value = billingAddressValues.country;
         billingAddress.querySelector('.phone-number input').value = billingAddressValues.phoneNumber;
     }
+
+    function updateCheckoutProducts() {
+        const productNameImgMap = {
+            'Colombia - Hulia Decaf De Cana': '../assets/images/hulia-cut.jpg',
+            'Colombia - China Alta': '../assets/images/china-cut.jpg'
+        }
+        
+        const productNameBackgroundMap = {
+            'Colombia - Hulia Decaf De Cana': 'linear-gradient(180deg, #E1BB67 0%, #9E844B 150%)',
+            'Colombia - China Alta': 'linear-gradient(180deg, #A65A47 0%, #894534 100%)'
+        }
+        
+        const productNamePageMap = {
+            'Colombia - Hulia Decaf De Cana': './espressos-Hulia.html',
+            'Colombia - China Alta': './espressos-China.html'
+        }
+
+        const checkoutProducts = document.querySelector('.checkout-products');
+        checkoutProducts.innerHTML = '';
+        const cart = getCart();
+        let totalPrice = 0;
+        if (cart.length === 0) {
+            checkoutProducts.innerHTML = '<p>Your cart is empty.</p>';
+            document.querySelector('.checkout-subtotal-amount').textContent = `A$${totalPrice}`;
+            return;
+        }
+        cart.forEach(product => {
+            const price = product.pricePerUnit * product.quantity;
+            totalPrice += price;
+            checkoutProducts.innerHTML += `
+                <div class="checkout-product" style="background: ${productNameBackgroundMap[product.name]}">
+                    <h3>${product.name}</h3>
+                    <span class="checkout-product-size">
+                        <span>Size: </span>
+                        <span class="checkout-product-size-option">${product.size}</span>
+                    </span>
+                    <img class="checkout-product-img" src="${productNameImgMap[product.name]}" alt="${product.name}">
+                    <span class="checkout-product-price">
+                        <span class="checkout-product-price-number">A$${price}</span>
+                    </span>
+                    <span class="checkout-product-quantity">
+                        <input type="number" class="quantity-number" value="${product.quantity}" min="1" max="99">
+                    </span>
+                </div>
+            `;
+        });
+    
+        // Bind product card click event
+        checkoutProducts.querySelectorAll('.checkout-product').forEach(product => {
+            product.addEventListener('click', () => {
+                window.location.href = productNamePageMap[product.querySelector('h3').textContent];
+            });
+        });
+    
+        // Update subtotal
+        totalPrice += parseFloat(localStorage.getItem('deliveryFee') || 0);
+        document.querySelector('.checkout-subtotal-amount').textContent = `A$${totalPrice}`;
+    }
+
+    updateCheckoutProducts();
 });
+
+
 
 
 
