@@ -447,7 +447,7 @@ main {
         margin-bottom: auto;
     }
 
-    .card.active p {
+    .email p {
         font-size: 1.5rem;
         font-weight: 400;
         color: #000;
@@ -456,13 +456,13 @@ main {
         text-align: center;
     }
 
-    .card.active input {
+    .email input {
         font-size: 1.5rem;
         width: 80%;
         padding: var(--space-1);
         border-radius: var(--radius);
         border: 2px solid #000;
-        background: #ffffffaa;
+        background: rgba(222,222,222,0.8);
         text-align: center;
     }
 
@@ -476,27 +476,32 @@ main {
         border-radius: var(--radius);
         border: 2px solid #000;
         margin-bottom: auto;
-        background: #ffffffaa;
+        background: rgba(222,222,222,0.8);
     }
 
-    .delivery-options-card {
+    .delivery-container {
         background: rgba(222,222,222,0.8);
         border: 1px solid #000;
         border-radius: 5px;
         padding: 1.5rem 1rem;
-        margin-bottom: 1.5rem;
         width: 100%;
         max-width: 400px;
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
-        gap: var(--space-2);
     }
     
-    .delivery-options-card h3 {
+    .delivery-container h3 {
         font-weight: 400;
         font-size: 1.5rem;
         color: #000;
+    }
+
+    .delivery-container > p {
+        font-weight: 400;
+        font-size: 1.25rem;
+        color: rgba(0, 0, 0, 0.6);
+        align-self: flex-start;
         margin-bottom: var(--space-2);
     }
     
@@ -554,6 +559,56 @@ main {
     
     .delivery-divider {
         border-top: 1px solid #000000;
+        margin: var(--space-2) 0;
+    }
+
+    .address-name {
+        display: flex;
+        flex-direction: row;
+        gap: var(--space-2);
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .address-name p,
+    .address p,
+    .phone-number p {
+        font-size: 1rem;
+        font-weight: 400;
+        color: #000;
+        align-self: flex-start;
+        margin-bottom: 0.25rem;
+    }
+
+    .suburb-state {
+        display: flex;
+        flex-direction: row;
+        gap: var(--space-2);
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .postcode-country {
+        display: flex;
+        flex-direction: row;
+        gap: var(--space-2);
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .delivery-container input[type="text"] {
+        font-size: 1rem;
+        text-align: center;
+        padding: var(--space-1);
+        border-radius: var(--radius);
+        border: 2px solid #000;
+        background: rgba(222,222,222,0.8);
+        margin-bottom: var(--space-2);
+        width: 100%;
+    }
+
+    .phone-number input[type="text"] {
+        margin-bottom: 0;
     }
     
     .email {

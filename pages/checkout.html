@@ -28,8 +28,9 @@
         <!-- Delivery -->
         <div class="card delivery active">
           <h2>Delivery</h2>
-          <div class="delivery-options-card">
+          <div class="delivery-container">
             <h3>Delivery Options</h3>
+            <p>Select your delivery method.</p>
             <div class="delivery-option">
               <label>
                 <input type="radio" name="delivery" value="pickup" checked>
@@ -46,6 +47,37 @@
                 <span class="option-label">AUSPOST</span>
                 <span class="option-price">A$10.00</span>
               </label>
+            </div>
+          </div>
+          <div class="delivery-container">
+            <h3>ShippingAddress</h3>
+            <p>Enter your address to receive your order.</p>
+            <div class="address-name">
+              <div class="first-name">
+                <p>First Name</p>
+                <input type="text" placeholder="First Name">
+              </div>
+              <div class="last-name">
+                <p>Last Name</p>
+                <input type="text" placeholder="Last Name">
+              </div>
+            </div>
+            <div class="address">
+              <p>Address Line</p>
+              <input type="text" placeholder="Address Line 1">
+              <input type="text" placeholder="Address Line 2">
+              <div class="suburb-state">
+                <input type="text" placeholder="Suburb">
+                <input type="text" placeholder="State">
+              </div>
+              <div class="postcode-country">
+                <input type="text" placeholder="Postcode">
+                <input type="text" placeholder="Country">
+              </div>
+            </div>
+            <div class="phone-number">
+              <p>Phone Number</p>
+              <input type="text" placeholder="Phone Number">
             </div>
           </div>
           <button>Continue</button>
