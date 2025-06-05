@@ -46,90 +46,220 @@ main {
     height: 100%;
 }
 
-.shop-section {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    padding: var(--space-2);
-    padding-bottom: 0;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-.shop-section h1 {
+main h1 {
     font-size: 2rem;
     font-weight: 700;
     color: #000;
     align-self: flex-start;
-    margin-bottom: auto;
+    margin: var(--space-2);
 }
 
-.product-card {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas: 
-        "info-title img"
-        "info-promo img";
-    row-gap: var(--space-1);                   
-    align-items: center;               
-    border-radius: 5px;
+.checkout-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-height: 80%;
+    padding: 0;
+    align-items: center;
+    overflow-y: auto;
+    gap: var(--space-2);
+}
+
+.card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;                  
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    height: 100%;
+    width: auto;          
+    border-radius: var(--radius);
     padding: var(--space-2);
-    padding-bottom: calc(var(--space-2) + var(--space-2));
-    margin-bottom: calc(-1 * var(--space-2));
+    margin: 0 var(--space-2);
     flex-shrink: 0;
     position: relative;
+    transition: flex var(--animation-duration);
 }
 
-.product-info h2 {
-    grid-area: info-title;
-    font-size: 1.5rem;
+.card h2 {
+    display: flex;
+    font-size: 2rem;
     font-weight: 700;
     color: #000;
 }
 
-.product-info p {
-    grid-area: info-promo;
-    font-size: 0.875rem;
+.email input {
+    font-size: 1.5rem;
+    padding: var(--space-1);
+    border-radius: var(--radius);
+    border: 2px solid #000;
+    background: rgba(222,222,222,0.8);
+    text-align: center;
+}
+
+.card-container {
+    background: rgba(222,222,222,0.8);
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 1.5rem 1rem;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+.card-container h3 {
     font-weight: 400;
+    font-size: 1.5rem;
     color: #000;
 }
 
-.product-img {
-    grid-area: img;
+.card-container > p {
+    font-weight: 400;
+    font-size: 1.25rem;
+    color: rgba(0, 0, 0, 0.6);
+    align-self: flex-start;
+    margin-bottom: var(--space-2);
+}
+
+.delivery-option,
+.payment-option,
+.billing-option {
+    display: flex;
+    align-items: center;
+}
+
+label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    cursor: pointer;
 }
 
-.product-img img {
+input[type="radio"] {
+    display: none;
+}
+
+.custom-radio {
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid #575757;
+    border-radius: 50%;
+    margin-right: 1rem;
+    position: relative;
+    background: #fff;
+}
+
+input[type="radio"]:checked + .custom-radio::after {
+    content: "";
+    display: block;
+    width: 0.5rem;
+    height: 0.5rem;
+    background: #575757;
+    border-radius: 50%;
+    position: absolute;
+    top: 0.125rem;
+    left: 0.125rem;
+}
+
+.option-label {
+    flex: 1;
+    font-size: 1.25rem;
+    color: #000;
+}
+
+.option-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-left: 1rem;
+    color: #000;
+}
+
+.delivery-divider,
+.payment-divider,
+.billing-divider {
+    border-top: 1px solid #000000;
+    margin: var(--space-2) 0;
+}
+
+.address-name {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-2);
+    justify-content: space-between;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 
-.espresso-card {
-    background: linear-gradient(180deg, #BE5036 0%, #593026 100%);
-    z-index: 1;
+.address-name p,
+.address p,
+.phone-number p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #000;
+    align-self: flex-start;
+    margin-bottom: 0.25rem;
 }
 
-.blend-card {
-    background: linear-gradient(180deg, #3D8A64 0%, #244233 100%);
-    z-index: 2;
+.suburb-state {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-2);
+    justify-content: space-between;
+    width: 100%;
 }
 
-.filter-card {
-    background: linear-gradient(180deg, #C380AC 0%, #5D3F53 100%);
-    z-index: 3;
+.postcode-country {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-2);
+    justify-content: space-between;
+    width: 100%;
 }
 
-.accessories-card {
-    background: linear-gradient(180deg, #AEB4CC 0%, #666A78 100%);
-    z-index: 4;
-    padding-bottom: var(--space-2);
+.card-container input[type="text"] {
+    font-size: 1rem;
+    text-align: center;
+    padding: var(--space-1);
+    border-radius: var(--radius);
+    border: 2px solid #000;
+    background: rgba(222,222,222,0.8);
+    margin-bottom: var(--space-2);
+    width: 100%;
+}
+
+.phone-number input[type="text"] {
     margin-bottom: 0;
-    border-radius: 5px 5px 0 0;
+}
+
+.custom-delivery-address,
+.custom-billing-address {
+    display: none;
+}
+
+.custom-delivery-address.active,
+.custom-billing-address.active {
+    display: block;
+    margin-top: var(--space-2);
+}
+
+.custom-delivery-address.active > p,
+.custom-billing-address.active > p {
+    margin-bottom: var(--space-2);
+}
+
+.email {
+    background: linear-gradient(270deg, #BE5036 0%, #593026 200%);
+}
+
+.delivery {
+    background: linear-gradient(270deg, #3D8A64 0%, #244233 200%);
+}
+
+.payment {
+    background: linear-gradient(270deg, #C380AC 0%, #5D3F53 200%);
 }
 
 .back-btn {
@@ -389,15 +519,14 @@ main {
         height: 100%;
     }
 
-    /* Shop section */
+    /* Checkout section */
     .checkout-section {
-        flex: 1;
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        height: 100%;
-        padding: 0;
         align-items: flex-start;
+        height: 100%;
+        max-height: 100%;
+        flex-direction: row;
+        overflow: hidden;
+        gap: 0;
     }
 
     .card {
@@ -409,26 +538,14 @@ main {
         gap: var(--space-2);
         height: 100%;
         width: auto;          
-        border-radius: 5px;
         padding: var(--space-2);
         padding-left: calc(var(--space-2) + var(--space-2));
+        margin: 0;
         margin-left: calc(-1 * var(--space-2));
         flex-shrink: 0;
         position: relative;
         transition: flex var(--animation-duration);
     }
-
-    /* .card .overflow-container {
-        display: flex;
-        flex-direction: column;                  
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        max-height: 80%;
-        overflow-y: auto;
-        padding: var(--space-2) 0;
-        gap: var(--space-2);        
-    } */
 
     .card.active {
         flex: 3;
@@ -654,6 +771,7 @@ main {
     }
     
     .payment {
+        border-radius: var(--radius) 0 0 var(--radius);
         background: linear-gradient(270deg, #C380AC 0%, #5D3F53 200%);
         z-index: 2;
     }
