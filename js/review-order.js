@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (deliveryOptionValue === 'auspost') {
         const deliveryAddress = document.querySelector('.custom-delivery-address');
         deliveryAddress.classList.add('active');
-        const deliveryAddressValues = localStorage.getItem('deliveryAddress');
+        const deliveryAddressValues = JSON.parse(localStorage.getItem('deliveryAddress'));
         document.querySelector('.first-name input').value = deliveryAddressValues.firstName;
         document.querySelector('.last-name input').value = deliveryAddressValues.lastName;
         document.querySelector('.address input:nth-child(2)').value = deliveryAddressValues.addressLine1;
@@ -87,16 +87,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (billingOptionValue === 'different-billing') {
         const billingAddress = document.querySelector('.custom-billing-address');
         billingAddress.classList.add('active');
-        const billingAddressValues = localStorage.getItem('billingAddress');
-        document.querySelector('.first-name input').value = billingAddressValues.firstName;
-        document.querySelector('.last-name input').value = billingAddressValues.lastName;
-        document.querySelector('.address input:nth-child(2)').value = billingAddressValues.addressLine1;
-        document.querySelector('.address input:nth-child(3)').value = billingAddressValues.addressLine2;
-        document.querySelector('.suburb input').value = billingAddressValues.suburb;
-        document.querySelector('.state input').value = billingAddressValues.state;
-        document.querySelector('.postcode input').value = billingAddressValues.postcode;
-        document.querySelector('.country input').value = billingAddressValues.country;
-        document.querySelector('.phone-number input').value = billingAddressValues.phoneNumber;
+        const billingAddressValues = JSON.parse(localStorage.getItem('billingAddress'));
+        billingAddress.querySelector('.first-name input').value = billingAddressValues.firstName;
+        billingAddress.querySelector('.last-name input').value = billingAddressValues.lastName;
+        billingAddress.querySelector('.address input:nth-child(2)').value = billingAddressValues.addressLine1;
+        billingAddress.querySelector('.address input:nth-child(3)').value = billingAddressValues.addressLine2;
+        billingAddress.querySelector('.suburb input').value = billingAddressValues.suburb;
+        billingAddress.querySelector('.state input').value = billingAddressValues.state;
+        billingAddress.querySelector('.postcode input').value = billingAddressValues.postcode;
+        billingAddress.querySelector('.country input').value = billingAddressValues.country;
+        billingAddress.querySelector('.phone-number input').value = billingAddressValues.phoneNumber;
     }
 });
 

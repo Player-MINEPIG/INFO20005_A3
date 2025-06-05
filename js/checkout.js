@@ -141,6 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Payment validation
     const paymentContinueBtn = paymentCard.querySelector('button');
     const paymentRadios = paymentCard.querySelectorAll('.payment-option input[type="radio"]');
+    let checkedPaymentRadio = null;
     const billingRadios = paymentCard.querySelectorAll('.billing-option input[type="radio"]');
     let checkedBillingRadio = null;
     const customBillingAddress = paymentCard.querySelector('.custom-billing-address');
@@ -149,6 +150,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function checkPaymentInputs() {
         const allFilled = Array.from(billingInputs).every(input => input.value.trim() !== '');
         const isPaymentRadioChecked = Array.from(paymentRadios).some(radio => radio.checked);
+
+        checkedPaymentRadio = null;
+        paymentRadios.forEach(radio => {
+            if (radio.checked) {
+                checkedPaymentRadio = radio;
+            }
+        });
 
         checkedBillingRadio = null;
         billingRadios.forEach(radio => {
@@ -204,6 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Please fill in all required fields');
             return;
         }
+        storeData();
         window.location.href = './review-order.html';
     });
 
@@ -222,6 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Please fill in all required fields');
             return;
         }
+        storeData();
         window.location.href = './review-order.html';
     });
 
@@ -233,6 +243,40 @@ document.addEventListener('DOMContentLoaded', () => {
             reviewOrderBtn.classList.remove('active');
             return false;
         }
+    }
+
+    function storeData() {
+        // store email and options
+        localStorage.setItem('email', emailInput.value);
+        localStorage.setItem('delivery', checkedRadio.value);
+        localStorage.setItem('payment', checkedPaymentRadio.value);
+        localStorage.setItem('billing', checkedBillingRadio.value);
+
+        // store delivery address
+        localStorage.setItem('deliveryAddress', JSON.stringify({
+            firstName: deliveryInputs[0].value,
+            lastName: deliveryInputs[1].value,
+            addressLine1: deliveryInputs[2].value,
+            addressLine2: deliveryInputs[3].value,
+            suburb: deliveryInputs[4].value,
+            state: deliveryInputs[5].value,
+            postcode: deliveryInputs[6].value,
+            country: deliveryInputs[7].value,
+            phoneNumber: deliveryInputs[8].value,
+        }));
+
+        // store billing address
+        localStorage.setItem('billingAddress', JSON.stringify({
+            firstName: billingInputs[0].value,
+            lastName: billingInputs[1].value,
+            addressLine1: billingInputs[2].value,
+            addressLine2: billingInputs[3].value,
+            suburb: billingInputs[4].value,
+            state: billingInputs[5].value,
+            postcode: billingInputs[6].value,
+            country: billingInputs[7].value,
+            phoneNumber: billingInputs[8].value,
+        }));
     }
 });
 
