@@ -1,6 +1,7 @@
 import { initCartDrawer } from './insertCartDrawer.js';
 import { initHeader } from './insertHeader.js';
 import { initMenuDrawer } from './insertMenuDrawer.js';
+import { updateCartProducts } from './insertCartDrawer.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     initHeader();
@@ -77,9 +78,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (checkedRadio) {
             if (checkedRadio.value === 'pickup') {
+                localStorage.setItem('deliveryFee', 0);
+                updateCartProducts();
                 deliveryContinueBtn.classList.add('active');
                 paymentCard.classList.add('available');
             } else if (checkedRadio.value === 'auspost') {
+                localStorage.setItem('deliveryFee', 10.00);
+                updateCartProducts();
                 if (allFilled) {
                     deliveryContinueBtn.classList.add('active');
                     paymentCard.classList.add('available');

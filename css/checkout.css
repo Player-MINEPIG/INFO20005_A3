@@ -174,7 +174,7 @@ main {
         order: 1;
         min-height: 0;
         height: 100vh;
-        min-width: 40%;
+        max-width: 40%;
         background: linear-gradient(180deg, #E0E0D5 0%, #B5B5A3 100%);
         box-shadow: -2px 0 8px rgba(0,0,0,0.15);
         transition: left 0.3s;

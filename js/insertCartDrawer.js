@@ -31,9 +31,16 @@ export function initCartDrawer() {
         document.querySelector('.cart-overlay').addEventListener('click', hideCartDrawer);
 
         // Bind checkout button event
-        document.querySelector('.checkout-btn').addEventListener('click', () => {
-            window.location.href = './checkout.html';
+        document.querySelector('.checkout-btn').addEventListener('click', (e) => {
+            if (e.target.classList.contains('active')) {
+                window.location.href = './checkout.html';
+            }
+            else {
+                alert('Empty cart');
+            }  
         });
+
+        updateCartProducts();
     });
 } 
 
@@ -50,14 +57,19 @@ export function hideCartDrawer() {
     document.dispatchEvent(new Event('cartDrawerHidden'));
 }
 
-let productNameImgMap = {
+const productNameImgMap = {
     'Colombia - Hulia Decaf De Cana': '../assets/images/hulia-cut.jpg',
     'Colombia - China Alta': '../assets/images/china-cut.jpg'
 }
 
-let productNameBackgroundMap = {
+const productNameBackgroundMap = {
     'Colombia - Hulia Decaf De Cana': 'linear-gradient(180deg, #E1BB67 0%, #9E844B 150%)',
     'Colombia - China Alta': 'linear-gradient(180deg, #A65A47 0%, #894534 100%)'
+}
+
+const productNamePageMap = {
+    'Colombia - Hulia Decaf De Cana': './espressos-Hulia.html',
+    'Colombia - China Alta': './espressos-China.html'
 }
 
 export function updateCartProducts() {
@@ -67,6 +79,8 @@ export function updateCartProducts() {
     let totalPrice = 0;
     if (cart.length === 0) {
         cartProducts.innerHTML = '<p>Your cart is empty.</p>';
+        document.querySelector('.subtotal-amount').textContent = `A$${totalPrice}`;
+        document.querySelector('.checkout-btn').classList.remove('active');
         return;
     }
     cart.forEach(product => {
@@ -91,6 +105,13 @@ export function updateCartProducts() {
             </div>
         `;
     });
+
+    // Bind product card click event
+    cartProducts.querySelectorAll('.cart-product').forEach(product => {
+        product.addEventListener('click', () => {
+            window.location.href = productNamePageMap[product.querySelector('h3').textContent];
+        });
+    });
     
     // Bind quantityevents
     document.querySelectorAll('.cart-product-quantity .minus-icon').forEach(icon => {
@@ -101,10 +122,15 @@ export function updateCartProducts() {
     });
 
     // Update subtotal
+    totalPrice += parseFloat(localStorage.getItem('deliveryFee') || 0);
     document.querySelector('.subtotal-amount').textContent = `A$${totalPrice}`;
+
+    // Enable checkout button if cart is not empty
+    document.querySelector('.checkout-btn').classList.add('active');
 }
 
 function onCartMinusIconClick(e) {
+    e.stopPropagation();
     const cartProduct = e.target.closest('.cart-product');
     const quantity = parseInt(cartProduct.querySelector('.quantity-number').value);
     const product = {
@@ -119,6 +145,7 @@ function onCartMinusIconClick(e) {
 }
 
 function onCartPlusIconClick(e) {
+    e.stopPropagation();
     const cartProduct = e.target.closest('.cart-product');
     const quantity = parseInt(cartProduct.querySelector('.quantity-number').value);
     const product = {
