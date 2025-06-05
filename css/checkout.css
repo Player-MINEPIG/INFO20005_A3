@@ -434,6 +434,10 @@ main {
         display: flex;
         font-size: 2rem;
         font-weight: 700;
+        color: rgba(0, 0, 0, 0.2);
+    }
+
+    .card.available h2 {
         color: #000;
     }
 
