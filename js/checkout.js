@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function onRadioChange() {
+    function onDeliveryRadioChange() {
         checkDeliveryInputs();
         if (checkedRadio.value === 'auspost') {
             customDeliveryAddress.classList.add('active');
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     deliveryRadios.forEach(radio => {
-        radio.addEventListener('change', onRadioChange);
+        radio.addEventListener('change', onDeliveryRadioChange);
     });
 
     deliveryContinueBtn.addEventListener('click', (e) => {
@@ -118,17 +118,78 @@ document.addEventListener('DOMContentLoaded', () => {
         activeCard(paymentCard);
     });
 
+    // Payment validation
+    const paymentContinueBtn = paymentCard.querySelector('button');
+    const paymentRadios = paymentCard.querySelectorAll('.payment-option input[type="radio"]');
+    const billingRadios = paymentCard.querySelectorAll('.billing-option input[type="radio"]');
+    let checkedBillingRadio = null;
+    const customBillingAddress = paymentCard.querySelector('.custom-billing-address');
+    const billingInputs = customBillingAddress.querySelectorAll('input[type="text"]');
+    
+    function checkPaymentInputs() {
+        const allFilled = Array.from(billingInputs).every(input => input.value.trim() !== '');
+        const isPaymentRadioChecked = Array.from(paymentRadios).some(radio => radio.checked);
+
+        checkedBillingRadio = null;
+        billingRadios.forEach(radio => {
+            if (radio.checked) {
+                checkedBillingRadio = radio;
+            }
+        });
+
+        if (isPaymentRadioChecked && checkedBillingRadio) {
+            if (checkedBillingRadio.value === 'same-as-shipping') {
+                paymentContinueBtn.classList.add('active');
+            } else if (checkedBillingRadio.value === 'different-billing') {
+                if (allFilled) {
+                    paymentContinueBtn.classList.add('active');
+                } else {
+                    paymentContinueBtn.classList.remove('active');
+                }
+            }
+        }
+        
+    }
+
+    function onBillingRadioChange() {
+        checkPaymentInputs();
+        if (checkedBillingRadio.value === 'different-billing') {
+            customBillingAddress.classList.add('active');
+        } else {
+            customBillingAddress.classList.remove('active');
+        }
+    }
+
+    billingRadios.forEach(radio => {
+        radio.addEventListener('change', onBillingRadioChange);
+    });
+
+    paymentRadios.forEach(radio => {
+        radio.addEventListener('change', checkPaymentInputs);
+    });
+
+    billingInputs.forEach(input => {
+        input.addEventListener('input', checkPaymentInputs);
+    });
+
+    paymentContinueBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (!paymentContinueBtn.classList.contains('active')) {
+            alert('Please fill in all required fields');
+            return;
+        }
+        // window.location.href = './review-checkout.html';
+        console.log('paymentContinueBtn clicked');
+    });
+
     // Active card
     function activeCard(targetCard) {
-        console.log(targetCard);
         document.querySelectorAll('.card').forEach(card => {
             card.classList.remove('active');
         });
         targetCard.classList.add('active');
     }
 });
-
-// Index logo navigation is handled by the sidebar module
 
 
 
