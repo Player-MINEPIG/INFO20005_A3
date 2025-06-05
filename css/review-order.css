@@ -86,7 +86,6 @@ main h1 {
     gap: 1rem;
     width: 100%;
     min-height: 0;
-    overflow-y: auto;
 }
 
 .checkout-products p {
@@ -411,7 +410,7 @@ input[type="radio"]:checked + .custom-radio::after {
     color: #000;
     font-size: 2rem;
     font-weight: 700;
-    border: none;
+    border: 2px solid #000;
     border-radius: var(--radius);
     padding: 0.75rem 0;
     margin-bottom: var(--space-2);
@@ -435,6 +434,10 @@ input[type="radio"]:checked + .custom-radio::after {
         display: none;
     }
 
+    .card.checkout-products-container {
+        display: none;
+    }
+
     body {
         display: flex;
         flex-direction: row;
@@ -447,6 +450,8 @@ input[type="radio"]:checked + .custom-radio::after {
         flex-direction: row;
         width: 100%;
         height: 100%;
+        background: linear-gradient(180deg, #E0E0D5 0%, #B5B5A3 100%);
+        min-height: 0;
     }
 
     /* Cart Overlay */
@@ -658,10 +663,26 @@ input[type="radio"]:checked + .custom-radio::after {
     .checkout-btn {
         width: 100%;
         background: linear-gradient(180deg, #D3BD9A 0%, #A68E67 100%);
-        color: rgba(0, 0, 0, 0.2);
+        color: #000;
         font-size: 2rem;
         font-weight: 700;
-        border: none;
+        border: 2px solid #000;
+        border-radius: 5px;
+        padding: 0.75rem 0;
+        cursor: pointer;
+        margin-bottom: var(--space-2);
+    }
+
+    .return-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        background: linear-gradient(to bottom, #E0E0D5, #B5B5A3);
+        color: #000;
+        font-size: 1.5rem;
+        font-weight: 700;
+        border: 2px solid #000;
         border-radius: 5px;
         padding: 0.75rem 0;
         cursor: pointer;
@@ -672,60 +693,39 @@ input[type="radio"]:checked + .custom-radio::after {
         flex-direction: row;
         width: 100%;
         height: 100%;
+        min-height: 0;
     }
 
     /* Checkout section */
     .checkout-section {
-        align-items: flex-start;
+        flex: 1;
+        display: grid;
+        grid-template-columns: auto 1fr auto 1fr;
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+        "first-divider email second-divider payment"
+        "first-divider delivery second-divider payment";
+        width: 100%;
         height: 100%;
         max-height: 100%;
-        flex-direction: row;
+        place-items: center;
         overflow: hidden;
-        gap: 0;
+        min-height: 0;
     }
 
     .card {
-        flex: 1;
         display: flex;
         flex-direction: column;                  
         align-items: center;
         justify-content: center;
         gap: var(--space-2);
-        height: 100%;
-        width: auto;          
-        padding: var(--space-2);
-        padding-left: calc(var(--space-2) + var(--space-2));
-        margin: 0;
-        margin-left: calc(-1 * var(--space-2));
-        flex-shrink: 0;
+        width: auto;
         position: relative;
-        transition: flex var(--animation-duration);
-    }
-
-    .card.active {
-        flex: 3;
-    }
-
-    .card > * {
-        display: none;
-    }
-
-    .card.active > * {
-        display: flex;
+        min-height: 0;
+        max-height: 90%;
     }
 
     .card h2 {
-        display: flex;
-        font-size: 2rem;
-        font-weight: 700;
-        color: rgba(0, 0, 0, 0.2);
-    }
-
-    .card.available h2 {
-        color: #000;
-    }
-
-    .card.active h2 {
         font-size: 2rem;
         font-weight: 700;
         color: #000;
@@ -744,25 +744,8 @@ input[type="radio"]:checked + .custom-radio::after {
         text-align: center;
     }
 
-    .card.active button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.5rem;
-        color: rgba(0, 0, 0, 0.2);
-        width: 80%;
-        padding: var(--space-1);
-        border-radius: var(--radius);
-        border: 2px solid #000;
-        margin-bottom: auto;
-        background: rgba(222,222,222,0.8);
-    }
-
-    .card.active button.active {
-        color: #000;
-    }
-
     .card-container {
+        /* flex: 1; */
         background: rgba(222,222,222,0.8);
         border: 1px solid #000;
         border-radius: 5px;
@@ -771,13 +754,16 @@ input[type="radio"]:checked + .custom-radio::after {
         max-width: 400px;
         box-sizing: border-box;
         flex-direction: column;
+        min-height: 0;
+        overflow-y: auto;
+        max-height: 100%;
     }
     
     .card-container h3 {
         font-weight: 400;
         font-size: 1.5rem;
         color: #000;
-        margin-bottom: 0;
+        margin-bottom: var(--space-2);
     }
 
     .card-container > p {
@@ -915,24 +901,35 @@ input[type="radio"]:checked + .custom-radio::after {
     }
     
     .email {
+        grid-area: email;
         background: linear-gradient(270deg, #BE5036 0%, #593026 200%);
-        z-index: 4;
-        padding: var(--space-2);
-        margin: 0;
+        margin-top: var(--space-2);
     }
     
     .delivery {
+        grid-area: delivery;
         background: linear-gradient(270deg, #3D8A64 0%, #244233 200%);
-        z-index: 3;
     }
     
     .payment {
-        border-radius: var(--radius) 0 0 var(--radius);
+        grid-area: payment;
         background: linear-gradient(270deg, #C380AC 0%, #5D3F53 200%);
-        z-index: 2;
+        margin-right: var(--space-3);
     }
 
-    .billing {
-        overflow-y: auto;
+    .first-vertical-divider {
+        grid-area: first-divider;
+        display: flex;
+        border-right: 3px solid #000;
+        margin: 0 var(--space-1);
+        height: 90%;
+    }
+
+    .second-vertical-divider {
+        grid-area: second-divider;
+        display: flex;
+        border-left: 3px solid #000;
+        margin: 0 var(--space-1);
+        height: 90%;
     }
 }

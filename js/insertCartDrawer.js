@@ -30,8 +30,30 @@ export function initCartDrawer() {
         // Bind close events
         document.querySelector('.cart-overlay').addEventListener('click', hideCartDrawer);
 
-        // Bind checkout button event
-        document.querySelector('.checkout-btn').addEventListener('click', (e) => {
+        updateCartProducts();
+
+        // if page is review-order, change some of the cart drawer elements
+        if (data === 'review-order') {
+            document.querySelector('.checkout-btn').textContent = 'Pay';
+            document.querySelectorAll('.cart-product-quantity .minus-icon').forEach(icon => {
+                icon.style.display = 'none';
+            });
+            document.querySelectorAll('.cart-product-quantity .plus-icon').forEach(icon => {
+                icon.style.display = 'none';
+            });
+            document.querySelector('.cart-checkout').innerHTML += `
+                <button class="return-btn desktop-only">Return to checkout</button>
+            `;
+            document.querySelector('.return-btn').addEventListener('click', () => {
+                window.location.href = './checkout.html';
+            });
+        }
+        else if (data === 'checkout') {
+            document.querySelector('.checkout-btn').style.display = 'none';
+        }
+        else {
+            // Bind checkout button event
+            document.querySelector('.checkout-btn').addEventListener('click', (e) => {
             if (e.target.classList.contains('active')) {
                 window.location.href = './checkout.html';
             }
@@ -39,8 +61,7 @@ export function initCartDrawer() {
                 alert('Empty cart');
             }  
         });
-
-        updateCartProducts();
+        }
     });
 } 
 
@@ -74,6 +95,7 @@ const productNamePageMap = {
 
 export function updateCartProducts() {
     const cartProducts = document.querySelector('.cart-products');
+    if (!cartProducts) return;
     cartProducts.innerHTML = '';
     const cart = getCart();
     let totalPrice = 0;
