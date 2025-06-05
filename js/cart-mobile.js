@@ -28,6 +28,13 @@ checkoutBtn.addEventListener('click', (e) => {
     }  
 });
 
+// Add window resize event
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 1368) {
+        window.location.href = getLastPage();
+    }
+});
+
 
 
 
